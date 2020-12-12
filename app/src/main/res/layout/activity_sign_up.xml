@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorLightBlue"
+    tools:context=".ui.signUp.SignUpActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        app:cardBackgroundColor="@color/colorWhite"
+        app:cardCornerRadius="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/colorWhite"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/welcomeMessage"
+                android:textColor="@color/colorDarkBlue"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/emailPrompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/prompt_email"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/colorDarkBlue"
+                android:textColorHint="@color/colorDarkBlue"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/passwordPrompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/prompt_password"
+                android:inputType="textPassword"
+                android:textColor="@color/colorDarkBlue"
+                android:textColorHint="@color/colorDarkBlue"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/confirmPasswordPrompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/confirmPassword"
+                android:inputType="textPassword"
+                android:textColor="@color/colorDarkBlue"
+                android:textColorHint="@color/colorDarkBlue"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/firstnamePrompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/firstname"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorDarkBlue"
+                android:textColorHint="@color/colorDarkBlue"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/lastNamePrompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/lastname"
+                android:inputType="textPersonName"
+                android:textColor="@color/colorDarkBlue"
+                android:textColorHint="@color/colorDarkBlue"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/phonePrompt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/phoneNumber"
+                android:inputType="phone"
+                android:textColor="@color/colorDarkBlue"
+                android:textColorHint="@color/colorDarkBlue"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:enabled="false"
+                android:text="@string/register"
+                android:textSize="25sp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.core.widget.NestedScrollView>

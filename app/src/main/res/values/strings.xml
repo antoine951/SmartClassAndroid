@@ -1,0 +1,77 @@
+<resources>
+    <string name="app_name">SmartClass</string>
+    <!--login-->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">se connecter</string>
+    <string name="welcome">"Bienvenue !"</string>
+    <string name="invalid_username">email invalide</string>
+    <string name="invalid_password">Mot de passe doit contenir plus de 8 caratères</string>
+    <string name="signup">S\'inscrire</string>
+
+    <string name="login_failed">"La connexion a échoué"</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="descriptionLogo">logo de SmartClass</string>
+
+
+    <!--Menu-->
+    <string name="menu_home">Accueil</string>
+    <string name="menu_task">Journal de classe</string>
+    <string name="menu_test">Interrogations non signées</string>
+    <string name="menu_report_card">Bulletin</string>
+    <string name="menu_event">Evénement</string>
+    <string name="menu_child">Choisir un enfant</string>
+    <string name="menu_log_out">Déconnecter</string>
+
+    <!--Event-->
+    <string name="event_week">Cette semaine</string>
+    <string name="event_month">Ce mois-ci</string>
+    <string name="event_coming">Prochainement</string>
+
+    <!--Usigned test-->
+    <string name="sign">signer</string>
+
+    <!--Task-->
+    <string name="descriptionTaskType">description du imageview task</string>
+
+    <!--Report card-->
+    <string name="french">Français :</string>
+    <string name="math">Math :</string>
+    <string name="science">Eveil :</string>
+    <string name="other">Autres :</string>
+    <string name="general">Moyenne générale :</string>
+    <string name="mean">Moyenne :</string>
+
+    <!--home-->
+    <string name="numberTask">tâche(s) à faire pour demain</string>
+    <string name="numberUnsignedTest">interrogation(s) à signer</string>
+    <string name="general_short">Général :</string>
+    <string name="event_month_long">événement(s) ce mois-ci</string>
+
+    <!--signup-->
+    <string name="welcomeMessage">Bienvenu chez SmartClass</string>
+    <string name="confirmPassword">Confirmer mot de passe</string>
+    <string name="firstname">Prénom</string>
+    <string name="lastname">Nom</string>
+    <string name="phoneNumber">Téléphone</string>
+    <string name="register">Enregistrer</string>
+    <string name="invalid_name">Champ obligatoire</string>
+    <string name="invalid_confirm_password">Mot de passe différent</string>
+    <string name="invalid_phone">Numéro de téléphone invalide</string>
+
+    <!--child-->
+    <string name="chooseChild">Choix de l\'enfant</string>
+    <string name="addChild">Ajouter un enfant</string>
+    <string name="addTheChild">Ajouter l\'enfant</string>
+    <string name="childLogin">Identifiant de l\'enfant</string>
+    <string name="childPassword">Mot de passe de l\'enfant</string>
+    <string name="messageChildSecretCode">Entrez les identifiants de l\'enfant</string>
+
+
+</resources>

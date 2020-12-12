@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="be.henallux.smartclass.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_task"
+        android:name="be.henallux.smartclass.ui.task.TaskFragment"
+        android:label="@string/menu_task"
+        tools:layout="@layout/fragment_task" />
+
+    <fragment
+        android:id="@+id/nav_test"
+        android:name="be.henallux.smartclass.ui.test.TestFragment"
+        android:label="@string/menu_test"
+        tools:layout="@layout/fragment_test" />
+
+    <fragment
+        android:id="@+id/nav_report_card"
+        android:name="be.henallux.smartclass.ui.reportCard.ReportCardFragment"
+        android:label="@string/menu_report_card"
+        tools:layout="@layout/fragment_report_card" />
+
+    <fragment
+        android:id="@+id/nav_event"
+        android:name="be.henallux.smartclass.ui.event.EventFragment"
+        android:label="@string/menu_event"
+        tools:layout="@layout/fragment_event" />
+
+
+</navigation>
