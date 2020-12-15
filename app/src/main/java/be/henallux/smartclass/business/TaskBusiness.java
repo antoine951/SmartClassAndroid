@@ -9,30 +9,8 @@ import be.henallux.smartclass.model.Task;
 
 public class TaskBusiness {
 
-    /*private ArrayList<Task> firstDayTasks;
-    private Date firstDay;
-
-    private ArrayList<Task> secondDayTasks;
-    private Date secondDay;
-
-    private ArrayList<Task> thirdDayTasks;
-    private Date thirdDay;
-
-    private ArrayList<Task> forthDayTasks;
-    private Date forthDay;
-
-    private ArrayList<Task> fifthDayTasks;
-    private Date fifthDay;
-
-    private ArrayList<Task> sixthDayTasks;
-    private Date sixthDay;
-
-    private ArrayList<Task> seventhDayTasks;
-    private Date seventhDay;*/
-
     private ArrayList<Date> dates;
     private ArrayList<ArrayList<Task>> tasks;
-
 
     public TaskBusiness() {
         this.dates = new ArrayList<>();
@@ -41,42 +19,24 @@ public class TaskBusiness {
             this.dates.add(computeNDayAfter(day));
             this.tasks.add(new ArrayList<>());
         }
-
-
-
-        /*this.firstDay = computeNDayAfter(1);
-        this.secondDay = computeNDayAfter(2);
-        this.thirdDay = computeNDayAfter(3);
-        this.forthDay = computeNDayAfter(4);
-        this.fifthDay = computeNDayAfter(5);
-        this.sixthDay = computeNDayAfter(6);
-        this.seventhDay = computeNDayAfter(7);
-
-
-        this.firstDayTasks = new ArrayList<>();
-        this.secondDayTasks = new ArrayList<>();
-        this.thirdDayTasks = new ArrayList<>();
-        this.forthDayTasks = new ArrayList<>();
-        this.fifthDayTasks = new ArrayList<>();
-        this.sixthDayTasks = new ArrayList<>();
-        this.seventhDayTasks = new ArrayList<>();*/
         sortDate();
     }
 
     private void sortDate() {
         ArrayList<Task> allTasks = getTask();
         for (Task task : allTasks) {
-            if (task.getDate().equals(dates.get(0))) {
+            Date day = task.getDate();
+            if (day.equals(dates.get(0))) {
                 tasks.get(0).add(task);
-            } else if (task.getDate().equals(dates.get(1))) {
+            } else if (day.equals(dates.get(1))) {
                 tasks.get(1).add(task);
-            } else if (task.getDate().equals(dates.get(2))) {
+            } else if (day.equals(dates.get(2))) {
                 tasks.get(2).add(task);
-            } else if (task.getDate().equals(dates.get(3))) {
+            } else if (day.equals(dates.get(3))) {
                 tasks.get(3).add(task);
-            } else if (task.getDate().equals(dates.get(4))) {
+            } else if (day.equals(dates.get(4))) {
                 tasks.get(4).add(task);
-            } else if (task.getDate().equals(dates.get(5))) {
+            } else if (day.equals(dates.get(5))) {
                 tasks.get(5).add(task);
             } else {
                 tasks.get(6).add(task);
