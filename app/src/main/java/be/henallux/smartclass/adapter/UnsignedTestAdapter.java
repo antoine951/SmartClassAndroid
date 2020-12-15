@@ -3,6 +3,7 @@ package be.henallux.smartclass.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,12 +18,17 @@ import be.henallux.smartclass.model.Test;
 public class UnsignedTestAdapter extends RecyclerView.Adapter<UnsignedTestAdapter.ViewHolderTest> {
 
     private ArrayList<Test> tests;
+    private OnTestListener onTestListener;
+
+    public UnsignedTestAdapter(OnTestListener onTestListener){
+        this.onTestListener = onTestListener;
+    }
 
     @NonNull
     @Override
     public ViewHolderTest onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_test, parent, false);
-        return new ViewHolderTest(view);
+        return new ViewHolderTest(view, onTestListener);
     }
 
     @Override
@@ -45,18 +51,39 @@ public class UnsignedTestAdapter extends RecyclerView.Adapter<UnsignedTestAdapte
         notifyDataSetChanged();
     }
 
+    public void setOnTestListener(OnTestListener onTestListener) {
+        this.onTestListener = onTestListener;
+    }
+
     public class ViewHolderTest extends RecyclerView.ViewHolder {
         TextView textViewSubject;
         TextView textViewTitle;
         TextView textViewResult;
         TextView textViewNote;
-
-        public ViewHolderTest(@NonNull View itemView) {
+        Button signedButton;
+        public ViewHolderTest(@NonNull View itemView, final OnTestListener onTestListener) {
             super(itemView);
             textViewTitle = itemView.findViewById(R.id.title);
             textViewSubject = itemView.findViewById(R.id.subjectTest);
             textViewResult = itemView.findViewById(R.id.value);
             textViewNote = itemView.findViewById(R.id.note);
+            signedButton = itemView.findViewById(R.id.check);
+
+            signedButton.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    if(onTestListener != null){
+                        int position = getAdapterPosition();
+                        if(position != RecyclerView.NO_POSITION){
+                            onTestListener.onTestClick(position);
+                        }
+                    }
+                }
+            });
         }
+    }
+
+    public interface OnTestListener{
+        void onTestClick(int position);
     }
 }

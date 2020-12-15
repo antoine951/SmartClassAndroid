@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,7 +16,7 @@ import be.henallux.smartclass.R;
 import be.henallux.smartclass.adapter.UnsignedTestAdapter;
 
 
-public class TestFragment extends Fragment {
+public class TestFragment extends Fragment implements UnsignedTestAdapter.OnTestListener {
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -25,11 +26,16 @@ public class TestFragment extends Fragment {
 
         final RecyclerView recyclerViewTest = root.findViewById(R.id.unsigned_test_list);
 
-        UnsignedTestAdapter unsignedTestAdapter = new UnsignedTestAdapter();
+        UnsignedTestAdapter unsignedTestAdapter = new UnsignedTestAdapter(this);
         testViewModel.getUnsignedTestList().observe(getViewLifecycleOwner(), unsignedTestAdapter::setTests);
         recyclerViewTest.setAdapter(unsignedTestAdapter);
         recyclerViewTest.setLayoutManager(new LinearLayoutManager(getContext()));
         return root;
+    }
+
+    @Override
+    public void onTestClick(int position) {
+        Toast.makeText(getContext(),"Vous avez cliqué  sur le "+position, Toast.LENGTH_LONG).show();
     }
 
 }
