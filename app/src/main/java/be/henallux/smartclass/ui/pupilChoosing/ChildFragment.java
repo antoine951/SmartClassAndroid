@@ -1,5 +1,6 @@
 package be.henallux.smartclass.ui.pupilChoosing;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import be.henallux.smartclass.R;
 import be.henallux.smartclass.adapter.PupilAdapter;
+import be.henallux.smartclass.ui.MainActivity;
 
 
-public class ChildFragment extends Fragment {
+public class ChildFragment extends Fragment implements PupilAdapter.OnItemSelectedListener {
 
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -26,11 +28,16 @@ public class ChildFragment extends Fragment {
 
         final RecyclerView recyclerViewChild = root.findViewById(R.id.child_list);
 
-        PupilAdapter adapter = new PupilAdapter();
+        PupilAdapter adapter = new PupilAdapter(this);
         pupilChoosingViewModel.getChildren().observe(getViewLifecycleOwner(), adapter::setChildren);
         recyclerViewChild.setAdapter(adapter);
         recyclerViewChild.setLayoutManager(new LinearLayoutManager(getContext()));
         return root;
     }
 
+    @Override
+    public void onItemSelected(int position) {
+        Intent intent = new Intent(getContext(), MainActivity.class);
+        startActivity(intent);
+    }
 }

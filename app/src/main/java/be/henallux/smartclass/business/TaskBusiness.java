@@ -37,7 +37,7 @@ public class TaskBusiness {
     public TaskBusiness() {
         this.dates = new ArrayList<>();
         this.tasks = new ArrayList<>();
-        for (int day = 1; day < 8; day++) {
+        for (int day = 0; day < 7; day++) {
             this.dates.add(computeNDayAfter(day));
             this.tasks.add(new ArrayList<>());
         }

@@ -25,17 +25,9 @@ public class PupilChoosingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pupil_choosing);
 
-        final Button nextButton = findViewById(R.id.next);
         final Button addChildButton = findViewById(R.id.addChild);
 
         addChildButton.setOnClickListener(this::navigateToAddChild);
-        nextButton.setOnClickListener(this::navigateToNextActivity);
-    }
-
-
-    private void navigateToNextActivity(View view) {
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intent);
     }
 
     private void navigateToAddChild(View view) {
