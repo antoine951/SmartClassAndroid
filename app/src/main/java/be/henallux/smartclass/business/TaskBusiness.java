@@ -8,7 +8,6 @@ import java.util.GregorianCalendar;
 import be.henallux.smartclass.model.Task;
 
 public class TaskBusiness {
-//j
     private ArrayList<Date> dates;
     private ArrayList<ArrayList<Task>> tasks;
 
