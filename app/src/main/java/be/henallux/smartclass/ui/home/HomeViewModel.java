@@ -29,7 +29,7 @@ public class HomeViewModel extends ViewModel {
         EventBusiness eventBusiness = new EventBusiness();
 
         mTextTask = new MutableLiveData<>();
-        mTextTask.setValue(Integer.toString(taskBusiness.getTasks().get(0).size()));
+        mTextTask.setValue(Integer.toString(taskBusiness.getTasks().get(1).size()));
 
         mTextTest= new MutableLiveData<>();
         mTextTest.setValue(Integer.toString(testBusiness.getUnsignedTest().size()));
