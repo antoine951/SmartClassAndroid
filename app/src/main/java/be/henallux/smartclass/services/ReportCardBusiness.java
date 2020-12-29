@@ -1,4 +1,4 @@
-package be.henallux.smartclass.business;
+package be.henallux.smartclass.services;
 
 import java.util.ArrayList;
 

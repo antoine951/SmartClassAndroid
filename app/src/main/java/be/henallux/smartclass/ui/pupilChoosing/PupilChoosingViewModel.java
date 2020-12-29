@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
 
-import be.henallux.smartclass.business.PupilBusiness;
+import be.henallux.smartclass.services.PupilBusiness;
 import be.henallux.smartclass.model.Pupil;
 
 public class PupilChoosingViewModel extends ViewModel {

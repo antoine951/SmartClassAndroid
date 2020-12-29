@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import be.henallux.smartclass.business.EventBusiness;
-import be.henallux.smartclass.business.ReportCardBusiness;
-import be.henallux.smartclass.business.TaskBusiness;
-import be.henallux.smartclass.business.TestBusiness;
+import be.henallux.smartclass.services.EventBusiness;
+import be.henallux.smartclass.services.ReportCardBusiness;
+import be.henallux.smartclass.services.TaskBusiness;
+import be.henallux.smartclass.services.TestBusiness;
 import be.henallux.smartclass.formater.Utils;
 
 public class HomeViewModel extends ViewModel {

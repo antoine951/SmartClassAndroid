@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
 
-import be.henallux.smartclass.business.TestBusiness;
+import be.henallux.smartclass.services.TestBusiness;
 import be.henallux.smartclass.model.Test;
 
 public class TestViewModel extends ViewModel {

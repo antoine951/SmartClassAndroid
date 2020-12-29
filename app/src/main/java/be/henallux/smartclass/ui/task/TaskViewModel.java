@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
 
-import be.henallux.smartclass.business.TaskBusiness;
+import be.henallux.smartclass.services.TaskBusiness;
 import be.henallux.smartclass.formater.Utils;
 import be.henallux.smartclass.model.Task;
 

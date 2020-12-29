@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
 
-import be.henallux.smartclass.business.EventBusiness;
+import be.henallux.smartclass.services.EventBusiness;
 import be.henallux.smartclass.model.Event;
 
 public class EventViewModel extends ViewModel {

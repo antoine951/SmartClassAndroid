@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
 
-import be.henallux.smartclass.business.ReportCardBusiness;
+import be.henallux.smartclass.services.ReportCardBusiness;
 import be.henallux.smartclass.formater.Utils;
 import be.henallux.smartclass.model.SubjectScore;
 
