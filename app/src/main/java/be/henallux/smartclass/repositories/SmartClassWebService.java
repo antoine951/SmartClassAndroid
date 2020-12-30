@@ -1,10 +1,16 @@
 package be.henallux.smartclass.repositories;
 
+import be.henallux.smartclass.model.Tutor;
 import be.henallux.smartclass.repositories.dto.TutorDto;
 import retrofit2.Call;
-import retrofit2.http.GET;
+import org.json.JSONObject;
+
+import retrofit2.http.Body;
+import retrofit2.http.Headers;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
-import retrofit2.http.Path;
+import retrofit2.http.Part;
+
 
 /**
  * Java Interface, exposing your different endpoints. </br>
@@ -23,6 +29,7 @@ import retrofit2.http.Path;
  */
 public interface SmartClassWebService {
 
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @POST("/login")
-    Call<TutorDto> getLogin();
+    Call<String> login(@Body Tutor tutor);
 }

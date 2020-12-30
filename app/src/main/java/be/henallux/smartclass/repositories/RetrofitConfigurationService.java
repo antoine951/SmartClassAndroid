@@ -8,6 +8,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory;
 import be.henallux.smartclass.utils.ConnectivityCheckInterceptor;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.moshi.MoshiConverterFactory;
 
 public class RetrofitConfigurationService {
@@ -28,13 +29,16 @@ public class RetrofitConfigurationService {
                 .addInterceptor(new ConnectivityCheckInterceptor(context))
                 .build();
 
-        Moshi moshiConverter = new Moshi.Builder()
+
+
+        /*Moshi moshiConverter = new Moshi.Builder()
                 .add(new KotlinJsonAdapterFactory())
-                .build();
+                .build();*/
 
         this.retrofitClient = new Retrofit.Builder()
                 .client(client)
-                .addConverterFactory(MoshiConverterFactory.create(moshiConverter))
+                .addConverterFactory(GsonConverterFactory.create())
+                //.addConverterFactory(MoshiConverterFactory.create(moshiConverter))
                 .baseUrl(BASE_URL)
                 .build();
     }
@@ -43,7 +47,7 @@ public class RetrofitConfigurationService {
         return new RetrofitConfigurationService(context);
     }
 
-    public SmartClassWebService SmartClassService(){
+    public SmartClassWebService smartClassService(){
         if(smartClassWebService == null){
             smartClassWebService = retrofitClient.create(SmartClassWebService.class);
         }

@@ -1,6 +1,6 @@
 package be.henallux.smartclass.repositories.dto;
 
-import com.squareup.moshi.Json;
+
 
 /**
  * Data Transfer Object. This kind of object is used to represent data transferred by a web service.
@@ -9,23 +9,17 @@ import com.squareup.moshi.Json;
  */
 public class TutorDto {
 
+    private String token;
 
-    private String username;
-    private String password;
-
-    public String getUsername() {
-        return username;
+    public TutorDto(String token) {
+        this.token = token;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getToken() {
+        return token;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setToken(String token) {
+        this.token = token;
     }
 }

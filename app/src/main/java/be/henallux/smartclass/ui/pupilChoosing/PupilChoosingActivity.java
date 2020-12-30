@@ -17,6 +17,7 @@ import be.henallux.smartclass.adapter.PupilAdapter;
 import be.henallux.smartclass.ui.MainActivity;
 import be.henallux.smartclass.ui.addChild.AddChildActivity;
 import be.henallux.smartclass.ui.test.TestViewModel;
+import be.henallux.smartclass.utils.sharedPreferences.SaveSharedPreference;
 
 public class PupilChoosingActivity extends AppCompatActivity {
 
@@ -30,9 +31,16 @@ public class PupilChoosingActivity extends AppCompatActivity {
         addChildButton.setOnClickListener(this::navigateToAddChild);
     }
 
+
     private void navigateToAddChild(View view) {
         Intent intent = new Intent(getApplicationContext(), AddChildActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed(){
+        SaveSharedPreference.setLoggedIn(getApplication(),false);
+        finish();
     }
 
 }

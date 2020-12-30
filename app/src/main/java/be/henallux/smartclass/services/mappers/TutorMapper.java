@@ -14,11 +14,11 @@ public class TutorMapper {
         return instance;
     }
 
-    public Tutor mapToTutor(TutorDto dto){
+    /*public Tutor mapToTutor(TutorDto dto){
         if (dto == null) {
             return null;
         }
 
         return new Tutor(dto.getUsername(), dto.getPassword());
-    }
+    }*/
 }
