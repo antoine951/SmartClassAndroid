@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -37,6 +38,12 @@ public class TaskFragment extends Fragment {
         final RecyclerView recyclerViewTaskFifth = root.findViewById(R.id.list_task_fifth);
         final RecyclerView recyclerViewTaskSixth = root.findViewById(R.id.list_task_sixth);
         final RecyclerView recyclerViewTaskSeventh = root.findViewById(R.id.list_task_seventh);
+
+        /*taskViewModel.getMessage().observe(getViewLifecycleOwner(), message->{
+            if(message!=null){
+                Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+            }
+        });*/
 
 
         taskViewModel.getFirstDay().observe(getViewLifecycleOwner(), dateFirst::setText);

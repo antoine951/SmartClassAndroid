@@ -10,6 +10,7 @@ import java.util.GregorianCalendar;
 
 
 import be.henallux.smartclass.model.Event;
+import be.henallux.smartclass.model.Task;
 import be.henallux.smartclass.services.EventBusiness;
 import be.henallux.smartclass.services.ReportCardBusiness;
 import be.henallux.smartclass.services.TaskBusiness;
@@ -29,7 +30,9 @@ public class HomeViewModel extends ViewModel {
     private MutableLiveData<String> mGeneralMean;
 
     public HomeViewModel() {
-        TaskBusiness taskBusiness = new TaskBusiness();
+        ArrayList<Task> tasks = new ArrayList<>();
+        TaskBusiness taskBusiness = new TaskBusiness(/*tasks*/);
+
         TestBusiness testBusiness = new TestBusiness();
         ReportCardBusiness reportCardBusiness = new ReportCardBusiness();
 

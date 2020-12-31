@@ -2,9 +2,10 @@ package be.henallux.smartclass.services
 
 import be.henallux.smartclass.model.Task
 import java.util.*
+import kotlin.collections.ArrayList
 
 
-class TaskBusiness{
+class TaskBusiness /*(tasksInput: ArrayList<Task>)*/{
 
     val dates: ArrayList<Date> = ArrayList()
     val tasks: ArrayList<ArrayList<Task>> = ArrayList()
@@ -15,12 +16,12 @@ class TaskBusiness{
             dates.add(computeNDayAfter(day))
             tasks.add(ArrayList())
         }
-        sortDate()
+        sortDate(/*tasksInput*/)
     }
 
-    private fun sortDate() {
-        val allTasks = taskFromDataAccess
-        for (task in allTasks) {
+    private fun sortDate(/*tasksInput: ArrayList<Task>*/) {
+        val tasksInput = taskFromDataAccess
+        for (task in tasksInput) {
             when (task.date) {
                 dates[0] -> tasks[0].add(task)
                 dates[1] -> tasks[1].add(task)
