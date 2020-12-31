@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -26,6 +27,12 @@ public class EventFragment extends Fragment {
         final RecyclerView recyclerViewWeek = root.findViewById(R.id.event_list_week);
         final RecyclerView recyclerViewMonth = root.findViewById(R.id.event_list_month);
         final RecyclerView recyclerViewComing = root.findViewById(R.id.event_list_coming);
+
+        eventViewModel.getMessage().observe(getViewLifecycleOwner(), message->{
+            if(message!=null){
+                Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         EventAdapter adapterWeek = new EventAdapter();
         eventViewModel.getEventListWeek().observe(getViewLifecycleOwner(), adapterWeek::setEvents);

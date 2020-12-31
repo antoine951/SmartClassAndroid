@@ -6,7 +6,7 @@ public class TaskDto {
 
     private String title;
     private String type;
-    private Date date;
+    private String date;
 
     public String getTitle() {
         return title;
@@ -24,11 +24,11 @@ public class TaskDto {
         this.type = type;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }

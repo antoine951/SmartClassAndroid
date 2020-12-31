@@ -1,34 +1,36 @@
 package be.henallux.smartclass.repositories.dto;
 
-import java.util.Date;
-
 public class EventDto {
 
-    private String eventName;
-    private Date eventDate;
-    private String eventDescription;
+    private Integer id;
+    private String name;
+    private String date;
+    private String description;
 
+    public Integer getId() {
+        return id;
+    }
     public String getEventName() {
-        return eventName;
+        return name;
     }
 
     public void setEventName(String eventName) {
-        this.eventName = eventName;
+        this.name = eventName;
     }
 
-    public Date getEventDate() {
-        return eventDate;
+    public String getEventDate() {
+        return date;
     }
 
-    public void setEventDate(Date eventDate) {
-        this.eventDate = eventDate;
+    public void setEventDate(String eventDate) {
+        this.date = eventDate;
     }
 
     public String getEventDescription() {
-        return eventDescription;
+        return description;
     }
 
     public void setEventDescription(String eventDescription) {
-        this.eventDescription = eventDescription;
+        this.description = eventDescription;
     }
 }

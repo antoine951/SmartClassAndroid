@@ -13,14 +13,18 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 import be.henallux.smartclass.R;
 import be.henallux.smartclass.adapter.PupilAdapter;
+import be.henallux.smartclass.model.Pupil;
 import be.henallux.smartclass.ui.MainActivity;
+import be.henallux.smartclass.utils.sharedPreferences.SaveSharedPreference;
 
 
 public class ChildFragment extends Fragment implements PupilAdapter.OnItemSelectedListener {
 
-
+    private ArrayList<Pupil> pupils=new ArrayList<>();
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         PupilChoosingViewModel pupilChoosingViewModel = ViewModelProviders.of(this).get(PupilChoosingViewModel.class);
@@ -36,7 +40,10 @@ public class ChildFragment extends Fragment implements PupilAdapter.OnItemSelect
         });
 
         PupilAdapter adapter = new PupilAdapter(this);
-        pupilChoosingViewModel.getChildren().observe(getViewLifecycleOwner(), adapter::setChildren);
+        pupilChoosingViewModel.getChildren().observe(getViewLifecycleOwner(), children->{
+            adapter.setChildren(children);
+            pupils=children;
+        });
         recyclerViewChild.setAdapter(adapter);
         recyclerViewChild.setLayoutManager(new LinearLayoutManager(getContext()));
         return root;
@@ -44,6 +51,7 @@ public class ChildFragment extends Fragment implements PupilAdapter.OnItemSelect
 
     @Override
     public void onItemSelected(int position) {
+        SaveSharedPreference.setCurrentChild(getContext(),pupils.get(position).getToken());
         Intent intent = new Intent(getContext(), MainActivity.class);
         startActivity(intent);
     }

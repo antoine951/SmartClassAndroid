@@ -7,6 +7,7 @@ import java.util.Date;
 
 public class Event {
 
+    private Integer id;
     private String eventName;
     private Date eventDate;
     private String eventDescription;
@@ -19,9 +20,18 @@ public class Event {
         setEventDate(eventDate);
     }
 
-    public Event(String eventName, Date eventDate, String eventDescription) {
+    public Event(Integer id, String eventName, Date eventDate, String eventDescription) {
         this(eventName, eventDate);
+        this.id = id;
         setEventDescription(eventDescription);
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getEventName() {

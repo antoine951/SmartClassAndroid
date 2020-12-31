@@ -34,4 +34,16 @@ public class SaveSharedPreference {
     public static String getLoggedInUser(Context context) {
         return getPreferences(context).getString("current_user","");
     }
+
+    public static void setCurrentChild(Context context, String token) {
+        SharedPreferences.Editor editor = getPreferences(context).edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(token);
+        editor.putString("current_child", json);
+        editor.apply();
+    }
+
+    public static String getCurrentChild(Context context) {
+        return getPreferences(context).getString("current_child","");
+    }
 }

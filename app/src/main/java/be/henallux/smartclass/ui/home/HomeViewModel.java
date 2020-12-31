@@ -4,6 +4,12 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
+
+import be.henallux.smartclass.model.Event;
 import be.henallux.smartclass.services.EventBusiness;
 import be.henallux.smartclass.services.ReportCardBusiness;
 import be.henallux.smartclass.services.TaskBusiness;
@@ -26,7 +32,9 @@ public class HomeViewModel extends ViewModel {
         TaskBusiness taskBusiness = new TaskBusiness();
         TestBusiness testBusiness = new TestBusiness();
         ReportCardBusiness reportCardBusiness = new ReportCardBusiness();
-        EventBusiness eventBusiness = new EventBusiness();
+
+        ArrayList<Event> events = new ArrayList<>();
+        EventBusiness eventBusiness = new EventBusiness(events);
 
         mTextTask = new MutableLiveData<>();
         mTextTask.setValue(Integer.toString(taskBusiness.getTasks().get(1).size()));
@@ -50,6 +58,7 @@ public class HomeViewModel extends ViewModel {
         mOtherMean.setValue((reportCardBusiness.getOtherMean()>-1)?Utils.formattedPercent(reportCardBusiness.getOtherMean()):"");
 
     }
+
 
     public LiveData<String> getTextTask() {
         return mTextTask;

@@ -36,16 +36,15 @@ public class PupilChoosingViewModel extends AndroidViewModel {
         super(application);
         SmartClassWebService smartClassWebService = RetrofitConfigurationService.getInstance(application).smartClassService();
         this.pupilMapper = PupilMapper.getInstance();
-        smartClassWebService.getChildren(("Bearer " + SaveSharedPreference.getLoggedInUser(getApplication())).replace("\"","")).enqueue(new Callback<ArrayList<PupilDto>>() {
+        smartClassWebService.getChildren(("Bearer " + SaveSharedPreference.getLoggedInUser(getApplication())).replace("\"", "")).enqueue(new Callback<ArrayList<PupilDto>>() {
             @Override
             public void onResponse(@NotNull Call<ArrayList<PupilDto>> call, @NotNull Response<ArrayList<PupilDto>> response) {
                 if (response.isSuccessful()) {
                     ArrayList<PupilDto> pupilsDto = response.body();
                     ArrayList<Pupil> pupils = new ArrayList<>();
-                    if (pupilsDto != null) {
-                        for (PupilDto p : pupilsDto) {
-                            pupils.add(pupilMapper.mapToPupil(p));
-                        }
+                    assert pupilsDto != null;
+                    for (PupilDto p : pupilsDto) {
+                        pupils.add(pupilMapper.mapToPupil(p));
                     }
                     _children.setValue(pupils);
                     _message.setValue(null);

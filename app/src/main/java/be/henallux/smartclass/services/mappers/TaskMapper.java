@@ -1,5 +1,10 @@
 package be.henallux.smartclass.services.mappers;
 
+import android.annotation.SuppressLint;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import be.henallux.smartclass.model.Task;
 import be.henallux.smartclass.repositories.dto.TaskDto;
 
@@ -13,11 +18,18 @@ public class TaskMapper {
         return instance;
     }
 
+    @SuppressLint("SimpleDateFormat")
     public Task mapToTask(TaskDto dto) {
         if (dto == null) {
             return null;
         }
-
-        return new Task(dto.getTitle(), dto.getType(), dto.getDate());
+        String sDate = dto.getDate();
+        Date date = null;
+        try {
+            date = new SimpleDateFormat("dd-MM-yyyy").parse(sDate);
+        }catch (Exception e){
+            System.out.println("erreur formattage date");
+        }
+        return new Task(dto.getTitle(), dto.getType(), date);
     }
 }

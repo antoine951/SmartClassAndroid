@@ -1,5 +1,10 @@
 package be.henallux.smartclass.services.mappers;
 
+import android.annotation.SuppressLint;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import be.henallux.smartclass.model.Event;
 import be.henallux.smartclass.repositories.dto.EventDto;
 
@@ -14,11 +19,18 @@ public class EventMapper {
         return instance;
     }
 
+    @SuppressLint("SimpleDateFormat")
     public Event mapToEvent(EventDto dto){
         if (dto == null) {
             return null;
         }
-
-        return new Event(dto.getEventName(), dto.getEventDate(),dto.getEventDescription());
+        String sDate = dto.getEventDate();
+        Date date = null;
+        try {
+            date = new SimpleDateFormat("dd-MM-yyyy").parse(sDate);
+        }catch (Exception e){
+            System.out.println("erreur formattage date");
+        }
+        return new Event(dto.getId(), dto.getEventName(), date, dto.getEventDescription());
     }
 }
