@@ -18,7 +18,6 @@ public class PupilMapper {
         if (dto == null) {
             return null;
         }
-
-        return new Pupil(dto.getLogin(), dto.getPassword(), dto.getFirstname(),dto.getLastname());
+        return new Pupil(dto.getToken(),dto.getFirstname(), dto.getLastname());
     }
 }

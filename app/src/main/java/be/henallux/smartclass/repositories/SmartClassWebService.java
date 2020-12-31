@@ -1,15 +1,16 @@
 package be.henallux.smartclass.repositories;
 
-import be.henallux.smartclass.model.Tutor;
-import be.henallux.smartclass.repositories.dto.TutorDto;
-import retrofit2.Call;
-import org.json.JSONObject;
 
+import java.util.ArrayList;
+
+import be.henallux.smartclass.model.Tutor;
+import be.henallux.smartclass.repositories.dto.PupilDto;
+import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Headers;
-import retrofit2.http.Multipart;
 import retrofit2.http.POST;
-import retrofit2.http.Part;
 
 
 /**
@@ -32,4 +33,10 @@ public interface SmartClassWebService {
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @POST("/login")
     Call<String> login(@Body Tutor tutor);
+
+
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @GET("/tutor/pupils")
+    Call<ArrayList<PupilDto>> getChildren(@Header("Authorization") String token);
+
 }

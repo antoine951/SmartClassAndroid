@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -27,6 +28,12 @@ public class ChildFragment extends Fragment implements PupilAdapter.OnItemSelect
         View root = inflater.inflate(R.layout.fragment_child, container, false);
 
         final RecyclerView recyclerViewChild = root.findViewById(R.id.child_list);
+
+        pupilChoosingViewModel.getMessage().observe(getViewLifecycleOwner(), message->{
+            if(message!=null){
+                Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         PupilAdapter adapter = new PupilAdapter(this);
         pupilChoosingViewModel.getChildren().observe(getViewLifecycleOwner(), adapter::setChildren);

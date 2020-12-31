@@ -4,10 +4,17 @@ public class Pupil {
 
     private String login;
     private String password;
+    private String token;
     private String firstname;
     private String lastname;
 
     public Pupil() { }
+
+    public Pupil(String token, String firstname, String lastname) {
+        this.token = token;
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
 
     public Pupil(String login, String password, String firstname, String lastname) {
         setLogin(login);
@@ -46,5 +53,13 @@ public class Pupil {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

@@ -3,7 +3,9 @@ package be.henallux.smartclass.utils.sharedPreferences;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import static be.henallux.smartclass.utils.sharedPreferences.PreferencesUtility.LOGGED_IN_PREF;
+
+import com.google.gson.Gson;
+
 
 public class SaveSharedPreference {
 
@@ -13,11 +15,23 @@ public class SaveSharedPreference {
 
     public static void setLoggedIn(Context context, boolean loggedIn) {
         SharedPreferences.Editor editor = getPreferences(context).edit();
-        editor.putBoolean(LOGGED_IN_PREF, loggedIn);
+        editor.putBoolean("logged_in_status", loggedIn);
         editor.apply();
     }
 
     public static boolean getLoggedStatus(Context context) {
-        return getPreferences(context).getBoolean(LOGGED_IN_PREF,false);
+        return getPreferences(context).getBoolean("logged_in_status",false);
+    }
+
+    public static void setLoggedInUser(Context context, String token) {
+        SharedPreferences.Editor editor = getPreferences(context).edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(token);
+        editor.putString("current_user", json);
+        editor.apply();
+    }
+
+    public static String getLoggedInUser(Context context) {
+        return getPreferences(context).getString("current_user","");
     }
 }

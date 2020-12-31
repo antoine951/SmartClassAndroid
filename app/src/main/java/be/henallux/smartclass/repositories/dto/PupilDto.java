@@ -2,25 +2,16 @@ package be.henallux.smartclass.repositories.dto;
 
 public class PupilDto {
 
-    private String login;
-    private String password;
+    private String token;
     private String firstname;
     private String lastname;
 
-    public String getLogin() {
-        return login;
+    public String getToken() {
+        return token;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public String getFirstname() {
