@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
+import be.henallux.smartclass.R;
 import be.henallux.smartclass.repositories.RetrofitConfigurationService;
 import be.henallux.smartclass.repositories.SmartClassWebService;
 import be.henallux.smartclass.repositories.dto.PupilDto;
@@ -49,16 +50,16 @@ public class PupilChoosingViewModel extends AndroidViewModel {
                     _children.setValue(pupils);
                     _message.setValue(null);
                 } else {
-                    _message.setValue("Une erreur est survenue lors de la requête");
+                    _message.setValue(getApplication().getString(R.string.queryError));
                 }
             }
 
             @Override
             public void onFailure(@NotNull Call<ArrayList<PupilDto>> call, @NotNull Throwable t) {
                 if (t instanceof NoConnectivityException) {
-                    _message.setValue("Vérifiez votre connexion internet!");
+                    _message.setValue(getApplication().getString(R.string.internetError));
                 } else {
-                    _message.setValue("Une erreur inconnue est survenue, veuillez réessayer!");
+                    _message.setValue(getApplication().getString(R.string.generalError));
                 }
             }
         });

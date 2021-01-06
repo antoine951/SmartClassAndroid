@@ -56,7 +56,7 @@ public class LoginViewModel extends AndroidViewModel {
                     SaveSharedPreference.setLoggedIn(app,true);
                 } else {
                     _isLog.setValue(false);
-                    _message.setValue("La combinaison email/mot de passe est invalide!");
+                    _message.setValue(getApplication().getString(R.string.loginError));
                 }
             }
 
@@ -64,10 +64,10 @@ public class LoginViewModel extends AndroidViewModel {
             public void onFailure(@NotNull Call<String> call, @NotNull Throwable t) {
                 if (t instanceof NoConnectivityException) {
                     _isLog.setValue(false);
-                    _message.setValue("Vérifiez votre connexion internet!");
+                    _message.setValue(getApplication().getString(R.string.internetError));
                 } else {
                     _isLog.setValue(false);
-                    _message.setValue("Une erreur inconnue est survenue, veuillez réessayer!");
+                    _message.setValue(getApplication().getString(R.string.generalError));
                 }
 
             }

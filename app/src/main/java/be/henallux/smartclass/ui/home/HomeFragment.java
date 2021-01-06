@@ -1,5 +1,6 @@
 package be.henallux.smartclass.ui.home;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,12 +12,21 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import be.henallux.smartclass.R;
+import be.henallux.smartclass.model.Test;
+import be.henallux.smartclass.ui.event.EventViewModel;
+import be.henallux.smartclass.ui.task.TaskViewModel;
+import be.henallux.smartclass.ui.test.TestViewModel;
 
 public class HomeFragment extends Fragment {
 
+    @SuppressLint("SetTextI18n")
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
+        TaskViewModel taskViewModel = ViewModelProviders.of(this).get(TaskViewModel.class);
+        TestViewModel testViewModel = ViewModelProviders.of(this).get(TestViewModel.class);
+        EventViewModel eventViewModel = ViewModelProviders.of(this).get(EventViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         final TextView numberTask = root.findViewById(R.id.numberTask);
@@ -28,9 +38,10 @@ public class HomeFragment extends Fragment {
         final TextView sciencesMean = root.findViewById(R.id.sciencesMean);
         final TextView otherMean = root.findViewById(R.id.otherMean);
 
-        homeViewModel.getTextTask().observe(getViewLifecycleOwner(), numberTask::setText);
-        homeViewModel.getTextTest().observe(getViewLifecycleOwner(), numberTest::setText);
-        homeViewModel.getTextEvent().observe(getViewLifecycleOwner(), numberEvent::setText);
+        taskViewModel.getTasksSecondDay().observe(getViewLifecycleOwner(), tasks-> numberTask.setText(Integer.toString(tasks.size())));
+        testViewModel.getUnsignedTestList().observe(getViewLifecycleOwner(), tests-> numberTest.setText(Integer.toString(tests.size())));
+        eventViewModel.getEventListWeek().observe(getViewLifecycleOwner(), events-> numberEvent.setText(Integer.toString(events.size())));
+
 
         homeViewModel.getFrenchMean().observe(getViewLifecycleOwner(), frenchMean::setText);
         homeViewModel.getMathMean().observe(getViewLifecycleOwner(), mathMean::setText);

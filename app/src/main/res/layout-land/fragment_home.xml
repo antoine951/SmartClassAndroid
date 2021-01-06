@@ -58,7 +58,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="20dp"
-                            android:layout_marginRight="20dp"
                             android:textColor="@color/colorDarkBlue"
                             android:textSize="25sp" />
 
@@ -81,7 +80,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="20dp"
-                            android:layout_marginRight="20dp"
                             android:textColor="@color/colorDarkBlue"
                             android:textSize="25sp" />
 
@@ -104,14 +102,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="20dp"
-                            android:layout_marginRight="20dp"
                             android:textColor="@color/colorDarkBlue"
                             android:textSize="25sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/event_month_long"
+                            android:text="@string/event_to_come"
                             android:textColor="@color/colorDarkBlue"
                             android:textSize="25sp" />
                     </LinearLayout>
@@ -165,7 +162,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="100dp"
-                            android:layout_marginLeft="100dp"
                             android:textColor="@color/colorDarkBlue"
                             android:textSize="25sp"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -193,7 +189,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="100dp"
-                            android:layout_marginLeft="100dp"
                             android:textColor="@color/colorDarkBlue"
                             android:textSize="25sp"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -221,7 +216,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="100dp"
-                            android:layout_marginLeft="100dp"
                             android:textColor="@color/colorDarkBlue"
                             android:textSize="25sp"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -249,7 +243,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="100dp"
-                            android:layout_marginLeft="100dp"
                             android:textColor="@color/colorDarkBlue"
                             android:textSize="25sp"
                             app:layout_constraintEnd_toEndOf="parent"

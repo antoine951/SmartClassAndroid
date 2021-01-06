@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import org.jetbrains.annotations.NotNull;
 
+import be.henallux.smartclass.R;
 import be.henallux.smartclass.model.requestLogin;
 import be.henallux.smartclass.repositories.RetrofitConfigurationService;
 import be.henallux.smartclass.repositories.SmartClassWebService;
@@ -36,18 +37,18 @@ public class AddChildViewModel extends AndroidViewModel {
             @Override
             public void onResponse(@NotNull Call<Void> call, @NotNull Response<Void> response) {
                 if (response.isSuccessful()) {
-                    _message.setValue("Enfant ajouté");
+                    _message.setValue(getApplication().getString(R.string.childAdd));
                 } else {
-                    _message.setValue("La combinaison nom/mot de passe est invalide!");
+                    _message.setValue(getApplication().getString(R.string.loginError));
                 }
             }
 
             @Override
             public void onFailure(@NotNull Call<Void> call, @NotNull Throwable t) {
                 if (t instanceof NoConnectivityException) {
-                    _message.setValue("Vérifiez votre connexion internet!");
+                    _message.setValue(getApplication().getString(R.string.internetError));
                 } else {
-                    _message.setValue("Une erreur inconnue est survenue, veuillez réessayer!");
+                    _message.setValue(getApplication().getString(R.string.generalError));
                 }
 
             }

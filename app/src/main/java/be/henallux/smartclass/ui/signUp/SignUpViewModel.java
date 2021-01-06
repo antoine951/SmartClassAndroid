@@ -40,18 +40,18 @@ public class SignUpViewModel extends AndroidViewModel {
             @Override
             public void onResponse(@NotNull Call<Void> call, @NotNull Response<Void> response) {
                 if (response.isSuccessful()) {
-                    _message.setValue("compte ajouté");
+                    _message.setValue(getApplication().getString(R.string.userAdd));
                 } else {
-                    _message.setValue("Ce compte existe déjà!");
+                    _message.setValue(getApplication().getString(R.string.signUpError));
                 }
             }
 
             @Override
             public void onFailure(@NotNull Call<Void> call, @NotNull Throwable t) {
                 if (t instanceof NoConnectivityException) {
-                    _message.setValue("Vérifiez votre connexion internet!");
+                    _message.setValue(getApplication().getString(R.string.internetError));
                 } else {
-                    _message.setValue("Une erreur inconnue est survenue, veuillez réessayer!");
+                    _message.setValue(getApplication().getString(R.string.generalError));
                 }
 
             }

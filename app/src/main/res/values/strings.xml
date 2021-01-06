@@ -52,7 +52,7 @@
     <string name="numberTask">tâche(s) à faire pour demain</string>
     <string name="numberUnsignedTest">interrogation(s) à signer</string>
     <string name="general_short">Général :</string>
-    <string name="event_month_long">événement(s) ce mois-ci</string>
+    <string name="event_to_come">événement(s) cette semaine</string>
 
     <!--signup-->
     <string name="welcomeMessage">Bienvenu chez SmartClass</string>
@@ -72,6 +72,20 @@
     <string name="childLogin">Identifiant de l\'enfant</string>
     <string name="childPassword">Mot de passe de l\'enfant</string>
     <string name="messageChildSecretCode">Entrez les identifiants de l\'enfant</string>
+
+    <!--toast error-->
+    <string name="internetError">Vérifiez votre connexion internet!</string>
+    <string name="loginError">La combinaison email/mot de passe est invalide!</string>
+    <string name="generalError">Une erreur inconnue est survenue, veuillez réessayer!</string>
+    <string name="queryError">Une erreur est survenue lors de la requête</string>
+    <string name="signUpError">Ce compte existe déjà!</string>
+    <string name="emptyFieldError">Au moins un des champs est vide!</string>
+
+    <!--toast ok-->
+    <string name="userAdd">Compte ajouté!</string>
+    <string name="childAdd">Enfant ajouté!</string>
+
+
 
 
 </resources>

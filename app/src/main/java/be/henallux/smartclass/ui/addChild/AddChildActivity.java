@@ -28,7 +28,7 @@ public class AddChildActivity extends AppCompatActivity {
         addChildViewModel.getMessage().observe(this, message -> {
             if(message!=null) {
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-                if (message.equals("Enfant ajouté")) {
+                if (message.equals(getApplication().getString(R.string.childAdd))) {
                     Intent i = new Intent(getApplicationContext(), PupilChoosingActivity.class);
                     finish();
                     startActivity(i);
@@ -42,7 +42,7 @@ public class AddChildActivity extends AppCompatActivity {
             if(childLogin.length()>0 && childPassword.length()>0) {
                 addChildViewModel.addChild(childLogin, childPassword);
             }else {
-                Toast.makeText(getApplicationContext(), "Au moins un des champs est vide", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getApplication().getString(R.string.emptyFieldError), Toast.LENGTH_SHORT).show();
             }
         });
 

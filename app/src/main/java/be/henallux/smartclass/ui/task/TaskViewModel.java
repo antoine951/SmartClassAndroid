@@ -6,22 +6,18 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-import be.henallux.smartclass.model.Event;
-import be.henallux.smartclass.repositories.RetrofitConfigurationService;
-import be.henallux.smartclass.repositories.SmartClassWebService;
-import be.henallux.smartclass.repositories.dto.EventDto;
-import be.henallux.smartclass.repositories.dto.TaskDto;
-import be.henallux.smartclass.services.EventBusiness;
-import be.henallux.smartclass.services.TaskBusiness;
+import be.henallux.smartclass.R;
 import be.henallux.smartclass.formater.Utils;
 import be.henallux.smartclass.model.Task;
-import be.henallux.smartclass.services.mappers.EventMapper;
+import be.henallux.smartclass.repositories.RetrofitConfigurationService;
+import be.henallux.smartclass.repositories.SmartClassWebService;
+import be.henallux.smartclass.repositories.dto.TaskDto;
+import be.henallux.smartclass.services.TaskBusiness;
 import be.henallux.smartclass.services.mappers.TaskMapper;
 import be.henallux.smartclass.utils.errors.NoConnectivityException;
 import be.henallux.smartclass.utils.sharedPreferences.SaveSharedPreference;
@@ -31,7 +27,6 @@ import retrofit2.Response;
 
 public class TaskViewModel extends AndroidViewModel {
 
-    // put liveData
     private MutableLiveData<ArrayList<Task>> _firstDayTasks = new MutableLiveData<>();
     private LiveData<ArrayList<Task>> firstDayTasks=_firstDayTasks;
     private MutableLiveData<String> _firstDay = new MutableLiveData<>();
@@ -98,28 +93,19 @@ public class TaskViewModel extends AndroidViewModel {
 
                     _message.setValue(null);
                 } else {
-                    _message.setValue("Une erreur est survenue lors de la requête");
+                    _message.setValue(getApplication().getString(R.string.queryError));
                 }
             }
 
             @Override
             public void onFailure(@NotNull Call<ArrayList<TaskDto>> call, @NotNull Throwable t) {
                 if (t instanceof NoConnectivityException) {
-                    _message.setValue("Vérifiez votre connexion internet!");
+                    _message.setValue(getApplication().getString(R.string.internetError));
                 } else {
-                    _message.setValue("Une erreur inconnue est survenue, veuillez réessayer!");
+                    _message.setValue(getApplication().getString(R.string.generalError));
                 }
             }
         });
-        /*TaskBusiness taskBusiness = new TaskBusiness();
-
-        init(taskBusiness, firstDay, firstDayTasks, 0);
-        init(taskBusiness, secondDay, secondDayTasks, 1);
-        init(taskBusiness, thirdDay, thirdDayTasks, 2);
-        init(taskBusiness, forthDay, forthDayTasks, 3);
-        init(taskBusiness, fifthDay, fifthDayTasks, 4);
-        init(taskBusiness, sixthDay, sixthDayTasks, 5);
-        init(taskBusiness, seventhDay, seventhDayTasks, 6);*/
     }
 
     public LiveData<ArrayList<Task>> getTasksFirstDay() {

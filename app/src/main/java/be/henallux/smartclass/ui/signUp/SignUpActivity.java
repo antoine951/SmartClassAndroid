@@ -35,7 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
         signUpViewModel.getMessage().observe(this, message -> {
             if(message!=null) {
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-                if (message.equals("compte ajouté")) {
+                if (message.equals(getApplication().getString(R.string.userAdd))) {
                     Intent i = new Intent(getApplicationContext(), LoginActivity.class);
                     finish();
                     startActivity(i);

@@ -15,9 +15,9 @@ import be.henallux.smartclass.services.TaskBusiness;
 
 public class HomeViewModel extends ViewModel {
 
-    private MutableLiveData<String> mTextTask;
+    /*private MutableLiveData<String> mTextTask = new MutableLiveData<>();
     private MutableLiveData<String> mTextTest;
-    private MutableLiveData<String> mTextEvent;
+    private MutableLiveData<String> mTextEvent;*/
 
     private MutableLiveData<String> mFrenchMean;
     private MutableLiveData<String> mMathMean;
@@ -33,14 +33,17 @@ public class HomeViewModel extends ViewModel {
         ArrayList<Event> events = new ArrayList<>();
         EventBusiness eventBusiness = new EventBusiness(events);
 
-        mTextTask = new MutableLiveData<>();
+        /*mTextTask = new MutableLiveData<>();
         mTextTask.setValue(Integer.toString(taskBusiness.getTasks().get(1).size()));
 
         mTextTest= new MutableLiveData<>();
         mTextTest.setValue("0");
 
         mTextEvent= new MutableLiveData<>();
-        mTextEvent.setValue(Integer.toString(eventBusiness.getEventThisWeek().size()+ eventBusiness.getEventThisMonth().size()));
+        mTextEvent.setValue(Integer.toString(eventBusiness.getEventThisWeek().size()+ eventBusiness.getEventThisMonth().size()));*/
+
+
+        //reportCard
 
         mFrenchMean = new MutableLiveData<>();
         mFrenchMean.setValue((reportCardBusiness.getFrenchMean()>-1)? Utils.formattedPercent(reportCardBusiness.getFrenchMean()):"");
@@ -57,7 +60,7 @@ public class HomeViewModel extends ViewModel {
     }
 
 
-    public LiveData<String> getTextTask() {
+    /*public LiveData<String> getTextTask() {
         return mTextTask;
     }
 
@@ -67,7 +70,7 @@ public class HomeViewModel extends ViewModel {
 
     public LiveData<String> getTextEvent() {
         return mTextEvent;
-    }
+    }*/
 
     public LiveData<String> getFrenchMean() {
         return mFrenchMean;
