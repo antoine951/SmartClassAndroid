@@ -26,7 +26,7 @@ public class TaskMapper {
         String sDate = dto.getDate();
         Date date = null;
         try {
-            date = new SimpleDateFormat("dd-MM-yyyy").parse(sDate);
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(sDate);
         }catch (Exception e){
             System.out.println("erreur formattage date");
         }

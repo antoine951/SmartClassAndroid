@@ -27,7 +27,7 @@ public class EventMapper {
         String sDate = dto.getEventDate();
         Date date = null;
         try {
-            date = new SimpleDateFormat("dd-MM-yyyy").parse(sDate);
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(sDate);
         }catch (Exception e){
             System.out.println("erreur formattage date");
         }

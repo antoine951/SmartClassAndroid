@@ -5,7 +5,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class TaskBusiness /*(tasksInput: ArrayList<Task>)*/{
+class TaskBusiness (tasksInput: ArrayList<Task>){
 
     val dates: ArrayList<Date> = ArrayList()
     val tasks: ArrayList<ArrayList<Task>> = ArrayList()
@@ -16,11 +16,11 @@ class TaskBusiness /*(tasksInput: ArrayList<Task>)*/{
             dates.add(computeNDayAfter(day))
             tasks.add(ArrayList())
         }
-        sortDate(/*tasksInput*/)
+        sortDate(tasksInput)
     }
 
-    private fun sortDate(/*tasksInput: ArrayList<Task>*/) {
-        val tasksInput = taskFromDataAccess
+    private fun sortDate(tasksInput: ArrayList<Task>) {
+        //val tasksInput = taskFromDataAccess
         for (task in tasksInput) {
             when (task.date) {
                 dates[0] -> tasks[0].add(task)
@@ -44,7 +44,7 @@ class TaskBusiness /*(tasksInput: ArrayList<Task>)*/{
         return calendar.time
     }
 
-    private val taskFromDataAccess: ArrayList<Task>
+    /*private val taskFromDataAccess: ArrayList<Task>
         get() {
             val tasks = ArrayList<Task>()
             tasks.add(Task("Interrogation tables de 3", "interrogation", GregorianCalendar(2020, Calendar.DECEMBER, 15).time))
@@ -59,6 +59,6 @@ class TaskBusiness /*(tasksInput: ArrayList<Task>)*/{
             tasks.add(Task("Interrogation tables de 9", "interrogation", GregorianCalendar(2020, Calendar.DECEMBER, 21).time))
             tasks.add(Task("Interrogation tables de 10", "interrogation", GregorianCalendar(2020, Calendar.DECEMBER, 22).time))
             return tasks
-        }
+        }*/
 }
 

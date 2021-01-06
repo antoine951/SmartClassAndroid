@@ -7,6 +7,7 @@ import be.henallux.smartclass.model.Tutor;
 import be.henallux.smartclass.repositories.dto.EventDto;
 import be.henallux.smartclass.repositories.dto.PupilDto;
 import be.henallux.smartclass.repositories.dto.TaskDto;
+import be.henallux.smartclass.repositories.dto.TestDto;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -48,6 +49,10 @@ public interface SmartClassWebService {
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @GET("/tasks/week")
     Call<ArrayList<TaskDto>> getTasks(@Header("Authorization") String token);
+
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @GET("/test")
+    Call<ArrayList<TestDto>> getUnsignedTests(@Header("Authorization") String token);
 
 
 

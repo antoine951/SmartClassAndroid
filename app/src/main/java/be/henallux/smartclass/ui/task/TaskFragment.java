@@ -39,11 +39,11 @@ public class TaskFragment extends Fragment {
         final RecyclerView recyclerViewTaskSixth = root.findViewById(R.id.list_task_sixth);
         final RecyclerView recyclerViewTaskSeventh = root.findViewById(R.id.list_task_seventh);
 
-        /*taskViewModel.getMessage().observe(getViewLifecycleOwner(), message->{
+        taskViewModel.getMessage().observe(getViewLifecycleOwner(), message->{
             if(message!=null){
                 Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
             }
-        });*/
+        });
 
 
         taskViewModel.getFirstDay().observe(getViewLifecycleOwner(), dateFirst::setText);

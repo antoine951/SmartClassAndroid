@@ -37,10 +37,12 @@ public class TaskAdapter  extends  RecyclerView.Adapter<TaskAdapter.ViewHolderTa
     public void onBindViewHolder(@NonNull TaskAdapter.ViewHolderTask holder, int position) {
         Task task = tasks.get(position);
         holder.textViewTitle.setText(task.getTitle());
-        if(task.getType().equals("devoir")){
-            holder.imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_task_homework));
-        }else if(task.getType().equals("annonce")){
+
+        if(task.getType()==null){
             holder.imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_task_announcement));
+        }
+        else if(task.getType().equals("devoir")){
+            holder.imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_task_homework));
         }else{
             holder.imageView.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_task_lesson));
         }

@@ -31,7 +31,7 @@ public class HomeViewModel extends ViewModel {
 
     public HomeViewModel() {
         ArrayList<Task> tasks = new ArrayList<>();
-        TaskBusiness taskBusiness = new TaskBusiness(/*tasks*/);
+        TaskBusiness taskBusiness = new TaskBusiness(tasks);
 
         TestBusiness testBusiness = new TestBusiness();
         ReportCardBusiness reportCardBusiness = new ReportCardBusiness();

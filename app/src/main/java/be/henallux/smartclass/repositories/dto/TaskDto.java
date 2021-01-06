@@ -1,7 +1,5 @@
 package be.henallux.smartclass.repositories.dto;
 
-import java.util.Date;
-
 public class TaskDto {
 
     private String title;

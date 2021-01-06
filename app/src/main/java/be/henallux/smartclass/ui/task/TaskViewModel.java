@@ -29,29 +29,43 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class TaskViewModel extends ViewModel {
+public class TaskViewModel extends AndroidViewModel {
 
     // put liveData
-    private MutableLiveData<ArrayList<Task>> firstDayTasks = new MutableLiveData<>();
-    private MutableLiveData<String> firstDay = new MutableLiveData<>();
+    private MutableLiveData<ArrayList<Task>> _firstDayTasks = new MutableLiveData<>();
+    private LiveData<ArrayList<Task>> firstDayTasks=_firstDayTasks;
+    private MutableLiveData<String> _firstDay = new MutableLiveData<>();
+    private LiveData<String> firstDay=_firstDay;
 
-    private MutableLiveData<ArrayList<Task>> secondDayTasks = new MutableLiveData<>();
-    private MutableLiveData<String> secondDay = new MutableLiveData<>();
+    private MutableLiveData<ArrayList<Task>> _secondDayTasks = new MutableLiveData<>();
+    private LiveData<ArrayList<Task>> secondDayTasks=_secondDayTasks;
+    private MutableLiveData<String> _secondDay = new MutableLiveData<>();
+    private LiveData<String> secondDay =_secondDay;
 
-    private MutableLiveData<ArrayList<Task>> thirdDayTasks = new MutableLiveData<>();
-    private MutableLiveData<String> thirdDay = new MutableLiveData<>();
+    private MutableLiveData<ArrayList<Task>> _thirdDayTasks = new MutableLiveData<>();
+    private LiveData<ArrayList<Task>> thirdDayTasks = _thirdDayTasks;
+    private MutableLiveData<String> _thirdDay = new MutableLiveData<>();
+    private LiveData<String> thirdDay = _thirdDay;
 
-    private MutableLiveData<ArrayList<Task>> forthDayTasks = new MutableLiveData<>();
-    private MutableLiveData<String> forthDay = new MutableLiveData<>();
+    private MutableLiveData<ArrayList<Task>> _forthDayTasks = new MutableLiveData<>();
+    private LiveData<ArrayList<Task>> forthDayTasks = _forthDayTasks;
+    private MutableLiveData<String> _forthDay = new MutableLiveData<>();
+    private LiveData<String>forthDay = _forthDay;
 
-    private MutableLiveData<ArrayList<Task>> fifthDayTasks = new MutableLiveData<>();
-    private MutableLiveData<String> fifthDay = new MutableLiveData<>();
+    private MutableLiveData<ArrayList<Task>> _fifthDayTasks = new MutableLiveData<>();
+    private LiveData<ArrayList<Task>> fifthDayTasks = _fifthDayTasks;
+    private MutableLiveData<String> _fifthDay = new MutableLiveData<>();
+    private LiveData<String> fifthDay=_fifthDay;
 
-    private MutableLiveData<ArrayList<Task>> sixthDayTasks = new MutableLiveData<>();
-    private MutableLiveData<String> sixthDay = new MutableLiveData<>();
+    private MutableLiveData<ArrayList<Task>> _sixthDayTasks = new MutableLiveData<>();
+    private LiveData<ArrayList<Task>> sixthDayTasks=_sixthDayTasks;
+    private MutableLiveData<String> _sixthDay = new MutableLiveData<>();
+    private LiveData<String> sixthDay = _sixthDay;
 
-    private MutableLiveData<ArrayList<Task>> seventhDayTasks = new MutableLiveData<>();
-    private MutableLiveData<String> seventhDay = new MutableLiveData<>();
+    private MutableLiveData<ArrayList<Task>> _seventhDayTasks = new MutableLiveData<>();
+    private LiveData<ArrayList<Task>> seventhDayTasks = _seventhDayTasks;
+    private MutableLiveData<String> _seventhDay = new MutableLiveData<>();
+    private  LiveData<String> seventhDay = _seventhDay;
 
     private MutableLiveData<String> _message = new MutableLiveData<>();
     private LiveData<String> message = _message;
@@ -59,30 +73,28 @@ public class TaskViewModel extends ViewModel {
     private TaskMapper taskMapper;
 
 
-    public TaskViewModel(/*@NonNull Application application*/) {
-        /*super(application);
+    public TaskViewModel(@NonNull Application application) {
+        super(application);
         SmartClassWebService smartClassWebService = RetrofitConfigurationService.getInstance(application).smartClassService();
         this.taskMapper = TaskMapper.getInstance();
         smartClassWebService.getTasks(("Bearer " + SaveSharedPreference.getCurrentChild(getApplication())).replace("\"", "")).enqueue(new Callback<ArrayList<TaskDto>>() {
             @Override
             public void onResponse(@NotNull Call<ArrayList<TaskDto>> call, @NotNull Response<ArrayList<TaskDto>> response) {
                 if (response.isSuccessful()) {
-
                     ArrayList<TaskDto> tasksDto = response.body();
                     ArrayList<Task> tasks = new ArrayList<>();
                     assert tasksDto != null;
                     for (TaskDto t : tasksDto) {
                         tasks.add(taskMapper.mapToTask(t));
                     }
-
                     TaskBusiness taskBusiness = new TaskBusiness(tasks);
-                    init(taskBusiness, firstDay, firstDayTasks, 0);
-                    init(taskBusiness, secondDay, secondDayTasks, 1);
-                    init(taskBusiness, thirdDay, thirdDayTasks, 2);
-                    init(taskBusiness, forthDay, forthDayTasks, 3);
-                    init(taskBusiness, fifthDay, fifthDayTasks, 4);
-                    init(taskBusiness, sixthDay, sixthDayTasks, 5);
-                    init(taskBusiness, seventhDay, seventhDayTasks, 6);
+                    init(taskBusiness, _firstDay, _firstDayTasks, 0);
+                    init(taskBusiness, _secondDay, _secondDayTasks, 1);
+                    init(taskBusiness, _thirdDay, _thirdDayTasks, 2);
+                    init(taskBusiness, _forthDay, _forthDayTasks, 3);
+                    init(taskBusiness, _fifthDay, _fifthDayTasks, 4);
+                    init(taskBusiness, _sixthDay, _sixthDayTasks, 5);
+                    init(taskBusiness, _seventhDay, _seventhDayTasks, 6);
 
                     _message.setValue(null);
                 } else {
@@ -98,8 +110,8 @@ public class TaskViewModel extends ViewModel {
                     _message.setValue("Une erreur inconnue est survenue, veuillez réessayer!");
                 }
             }
-        });*/
-        TaskBusiness taskBusiness = new TaskBusiness();
+        });
+        /*TaskBusiness taskBusiness = new TaskBusiness();
 
         init(taskBusiness, firstDay, firstDayTasks, 0);
         init(taskBusiness, secondDay, secondDayTasks, 1);
@@ -107,7 +119,7 @@ public class TaskViewModel extends ViewModel {
         init(taskBusiness, forthDay, forthDayTasks, 3);
         init(taskBusiness, fifthDay, fifthDayTasks, 4);
         init(taskBusiness, sixthDay, sixthDayTasks, 5);
-        init(taskBusiness, seventhDay, seventhDayTasks, 6);
+        init(taskBusiness, seventhDay, seventhDayTasks, 6);*/
     }
 
     public LiveData<ArrayList<Task>> getTasksFirstDay() {
@@ -166,9 +178,9 @@ public class TaskViewModel extends ViewModel {
         return seventhDay;
     }
 
-    /*public LiveData<String> getMessage() {
+    public LiveData<String> getMessage() {
         return message;
-    }*/
+    }
 
     private void init(TaskBusiness taskBusiness, MutableLiveData<String> day, MutableLiveData<ArrayList<Task>> dayTasks, int nday) {
         dayTasks.setValue(taskBusiness.getTasks().get(nday));
