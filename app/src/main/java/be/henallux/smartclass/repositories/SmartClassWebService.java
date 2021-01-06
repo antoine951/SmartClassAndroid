@@ -3,7 +3,7 @@ package be.henallux.smartclass.repositories;
 
 import java.util.ArrayList;
 
-import be.henallux.smartclass.model.Tutor;
+import be.henallux.smartclass.model.requestLogin;
 import be.henallux.smartclass.repositories.dto.EventDto;
 import be.henallux.smartclass.repositories.dto.PupilDto;
 import be.henallux.smartclass.repositories.dto.TaskDto;
@@ -35,16 +35,15 @@ public interface SmartClassWebService {
 
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @POST("/login")
-    Call<String> login(@Body Tutor tutor);
+    Call<String> login(@Body requestLogin requestLogin);
 
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    @POST("/tutor/add/pupil")
+    Call<Void> addchild(@Header("Authorization") String token, @Body requestLogin requestLogin);
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @GET("/tutor/pupils")
     Call<ArrayList<PupilDto>> getChildren(@Header("Authorization") String token);
-
-    @Headers({"Content-Type: application/json;charset=UTF-8"})
-    @GET("/events")
-    Call<ArrayList<EventDto>> getEvents(@Header("Authorization") String token);
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @GET("/tasks/week")
@@ -53,6 +52,14 @@ public interface SmartClassWebService {
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @GET("/test")
     Call<ArrayList<TestDto>> getUnsignedTests(@Header("Authorization") String token);
+
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @GET("/events")
+    Call<ArrayList<EventDto>> getEvents(@Header("Authorization") String token);
+
+
+
+
 
 
 

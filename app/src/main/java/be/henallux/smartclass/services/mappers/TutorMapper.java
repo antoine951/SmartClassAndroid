@@ -1,8 +1,5 @@
 package be.henallux.smartclass.services.mappers;
 
-import be.henallux.smartclass.model.Tutor;
-import be.henallux.smartclass.repositories.dto.TutorDto;
-
 public class TutorMapper {
 
     private static TutorMapper instance = null;

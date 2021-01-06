@@ -1,13 +1,13 @@
 package be.henallux.smartclass.model;
 
-public class Tutor {
+public class requestLogin {
 
     private String username;
     private String password;
 
-    public Tutor() { }
+    public requestLogin() { }
 
-    public Tutor(String username, String password) {
+    public requestLogin(String username, String password) {
         this.username = username;
         this.password = password;
     }

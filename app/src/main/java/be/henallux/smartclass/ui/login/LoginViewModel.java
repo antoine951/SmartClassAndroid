@@ -11,7 +11,7 @@ import androidx.lifecycle.MutableLiveData;
 import org.jetbrains.annotations.NotNull;
 
 import be.henallux.smartclass.R;
-import be.henallux.smartclass.model.Tutor;
+import be.henallux.smartclass.model.requestLogin;
 import be.henallux.smartclass.repositories.RetrofitConfigurationService;
 import be.henallux.smartclass.repositories.SmartClassWebService;
 import be.henallux.smartclass.utils.errors.NoConnectivityException;
@@ -23,9 +23,6 @@ import retrofit2.Response;
 public class LoginViewModel extends AndroidViewModel {
 
     private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
-
-    /*private MutableLiveData<String> _tutorToken = new MutableLiveData<>();
-    private LiveData<String> tutorToken = _tutorToken;*/
 
     private MutableLiveData<String> _message = new MutableLiveData<>();
     private LiveData<String> error = _message;
@@ -49,11 +46,10 @@ public class LoginViewModel extends AndroidViewModel {
 
     public void login(String username, String password){
         _message.setValue(null);
-        smartClassWebService.login(new Tutor(username,password)).enqueue(new Callback<String>() {
+        smartClassWebService.login(new requestLogin(username,password)).enqueue(new Callback<String>() {
             @Override
             public void onResponse(@NotNull Call<String> call, @NotNull Response<String> response) {
                 if (response.isSuccessful()) {
-                    //_tutorToken.setValue(response.body());
                     _message.setValue(null);
                     _isLog.setValue(true);
                     SaveSharedPreference.setLoggedInUser(app, response.body());
@@ -98,10 +94,6 @@ public class LoginViewModel extends AndroidViewModel {
     private boolean isPasswordValid(String password) {
         return password != null && password.trim().length() > 7;
     }
-
-    /*public LiveData<String> getTutor() {
-        return tutorToken;
-    }*/
 
     public LiveData<String> getMessage() {
         return error;
