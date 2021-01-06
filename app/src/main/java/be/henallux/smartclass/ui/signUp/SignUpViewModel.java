@@ -3,22 +3,18 @@ package be.henallux.smartclass.ui.signUp;
 import android.app.Application;
 import android.util.Patterns;
 
-
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import org.jetbrains.annotations.NotNull;
 
 import be.henallux.smartclass.R;
 import be.henallux.smartclass.model.Tutor;
-import be.henallux.smartclass.model.requestLogin;
 import be.henallux.smartclass.repositories.RetrofitConfigurationService;
 import be.henallux.smartclass.repositories.SmartClassWebService;
 import be.henallux.smartclass.utils.errors.NoConnectivityException;
-import be.henallux.smartclass.utils.sharedPreferences.SaveSharedPreference;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
