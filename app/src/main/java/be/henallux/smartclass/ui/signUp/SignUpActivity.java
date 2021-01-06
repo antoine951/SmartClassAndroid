@@ -7,20 +7,24 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
 import be.henallux.smartclass.R;
+import be.henallux.smartclass.model.Tutor;
 import be.henallux.smartclass.ui.login.LoginActivity;
+import be.henallux.smartclass.ui.pupilChoosing.PupilChoosingActivity;
 
 public class SignUpActivity extends AppCompatActivity {
 
+    private SignUpViewModel signUpViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        SignUpViewModel signUpViewModel = ViewModelProviders.of(this).get(SignUpViewModel.class);
+        signUpViewModel = ViewModelProviders.of(this).get(SignUpViewModel.class);
 
         final EditText emailEditText = findViewById(R.id.emailPrompt);
         final EditText passwordEditText = findViewById(R.id.passwordPrompt);
@@ -29,6 +33,22 @@ public class SignUpActivity extends AppCompatActivity {
         final EditText lastNameEditText = findViewById(R.id.lastNamePrompt);
         final EditText phoneEditText = findViewById(R.id.phonePrompt);
         final Button registerButton = findViewById(R.id.register);
+
+        signUpViewModel.getMessage().observe(this, message -> {
+            if(message!=null) {
+                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
+                if (message.equals("compte ajouté")) {
+                    Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                    finish();
+                    startActivity(i);
+                }
+            }
+        });
+
+        registerButton.setOnClickListener(v->{
+            Tutor tutor = new Tutor(emailEditText.getText().toString(),passwordEditText.getText().toString(),firstNameEditText.getText().toString(),lastNameEditText.getText().toString(),phoneEditText.getText().toString());
+            signUpViewModel.signUp(tutor);
+        });
 
         signUpViewModel.getSignUpFormState().observe(this, signUpFormState -> {
             if (signUpFormState == null) {
@@ -81,10 +101,13 @@ public class SignUpActivity extends AppCompatActivity {
         lastNameEditText.addTextChangedListener(afterTextChangedListener);
         phoneEditText.addTextChangedListener(afterTextChangedListener);
 
-        registerButton.setOnClickListener(this::backToSignIn);
     }
 
-    private void backToSignIn(View view) {
+    @Override
+    public void onBackPressed(){
+        Intent i = new Intent(getApplicationContext(), LoginActivity.class);
         finish();
+        startActivity(i);
     }
+
 }

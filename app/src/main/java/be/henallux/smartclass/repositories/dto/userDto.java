@@ -7,11 +7,11 @@ package be.henallux.smartclass.repositories.dto;
  * In an application, it is recommended to distinct your DTO from your Model objects, so that you
  * don't expose your database model to the outside
  */
-public class TutorDto {
+public class userDto {
 
     private String token;
 
-    public TutorDto(String token) {
+    public userDto(String token) {
         this.token = token;
     }
 

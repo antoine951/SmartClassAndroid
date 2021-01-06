@@ -3,6 +3,7 @@ package be.henallux.smartclass.repositories;
 
 import java.util.ArrayList;
 
+import be.henallux.smartclass.model.Tutor;
 import be.henallux.smartclass.model.requestLogin;
 import be.henallux.smartclass.repositories.dto.EventDto;
 import be.henallux.smartclass.repositories.dto.PupilDto;
@@ -36,6 +37,10 @@ public interface SmartClassWebService {
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @POST("/login")
     Call<String> login(@Body requestLogin requestLogin);
+
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    @POST("/signup")
+    Call<Void> signUp(@Body Tutor tutor);
 
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @POST("/tutor/add/pupil")

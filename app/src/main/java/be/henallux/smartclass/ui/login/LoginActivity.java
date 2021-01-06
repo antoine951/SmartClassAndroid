@@ -101,6 +101,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void navigateToSignUp(View view) {
         Intent intent = new Intent(getApplicationContext(), SignUpActivity.class);
+        finish();
         startActivity(intent);
     }
 }

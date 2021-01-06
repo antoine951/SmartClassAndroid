@@ -1,21 +1,66 @@
 package be.henallux.smartclass.ui.signUp;
 
+import android.app.Application;
 import android.util.Patterns;
 
 
+import androidx.annotation.NonNull;
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import org.jetbrains.annotations.NotNull;
+
 import be.henallux.smartclass.R;
+import be.henallux.smartclass.model.Tutor;
+import be.henallux.smartclass.model.requestLogin;
+import be.henallux.smartclass.repositories.RetrofitConfigurationService;
+import be.henallux.smartclass.repositories.SmartClassWebService;
+import be.henallux.smartclass.utils.errors.NoConnectivityException;
+import be.henallux.smartclass.utils.sharedPreferences.SaveSharedPreference;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
-
-public class SignUpViewModel extends ViewModel {
+public class SignUpViewModel extends AndroidViewModel {
 
     private MutableLiveData<SignUpFormState> signUpFormState = new MutableLiveData<>();
 
-    public SignUpViewModel() { }
+    private MutableLiveData<String> _message = new MutableLiveData<>();
+    private LiveData<String> message = _message;
+
+    private SmartClassWebService smartClassWebService;
+
+    public SignUpViewModel(@NonNull Application application) {
+        super(application);
+        this.smartClassWebService = RetrofitConfigurationService.getInstance(application).smartClassService();
+    }
+
+    public void signUp(Tutor tutor){
+        _message.setValue(null);
+        smartClassWebService.signUp(tutor).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(@NotNull Call<Void> call, @NotNull Response<Void> response) {
+                if (response.isSuccessful()) {
+                    _message.setValue("compte ajouté");
+                } else {
+                    _message.setValue("Ce compte existe déjà!");
+                }
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<Void> call, @NotNull Throwable t) {
+                if (t instanceof NoConnectivityException) {
+                    _message.setValue("Vérifiez votre connexion internet!");
+                } else {
+                    _message.setValue("Une erreur inconnue est survenue, veuillez réessayer!");
+                }
+
+            }
+        });
+    }
 
     LiveData<SignUpFormState> getSignUpFormState() {
         return signUpFormState;
@@ -65,5 +110,9 @@ public class SignUpViewModel extends ViewModel {
     // phone validation check
     private boolean isPhoneValid(String phone) {
         return phone != null && phone.matches("[0-9]{9,10}");
+    }
+
+    public LiveData<String> getMessage() {
+        return message;
     }
 }
