@@ -2,6 +2,7 @@ package be.henallux.smartclass.repositories.dto;
 
 public class TestDto {
 
+    private Integer idtest;
     private String title;
     private Double result;
     private String note;
@@ -9,13 +10,22 @@ public class TestDto {
     private String category;
     private String schoolsubject;
 
-    public TestDto(String title, Double result, String note, Double maxvalue, String category, String schoolsubject) {
+    public TestDto(Integer idtest, String title, Double result, String note, Double maxvalue, String category, String schoolsubject) {
+        this.idtest = idtest;
         this.title = title;
         this.result = result;
         this.note = note;
         this.maxvalue = maxvalue;
         this.category = category;
         this.schoolsubject = schoolsubject;
+    }
+
+    public Integer getIdtest() {
+        return idtest;
+    }
+
+    public void setIdtest(Integer idtest) {
+        this.idtest = idtest;
     }
 
     public String getTitle() {

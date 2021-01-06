@@ -4,7 +4,7 @@ package be.henallux.smartclass.repositories;
 import java.util.ArrayList;
 
 import be.henallux.smartclass.model.Tutor;
-import be.henallux.smartclass.model.requestLogin;
+import be.henallux.smartclass.model.RequestLogin;
 import be.henallux.smartclass.repositories.dto.EventDto;
 import be.henallux.smartclass.repositories.dto.PupilDto;
 import be.henallux.smartclass.repositories.dto.TaskDto;
@@ -15,6 +15,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 
 /**
@@ -36,7 +37,7 @@ public interface SmartClassWebService {
 
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @POST("/login")
-    Call<String> login(@Body requestLogin requestLogin);
+    Call<String> login(@Body RequestLogin requestLogin);
 
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @POST("/signup")
@@ -44,7 +45,7 @@ public interface SmartClassWebService {
 
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @POST("/tutor/add/pupil")
-    Call<Void> addChild(@Header("Authorization") String token, @Body requestLogin requestLogin);
+    Call<Void> addChild(@Header("Authorization") String token, @Body RequestLogin requestLogin);
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @GET("/tutor/pupils")
@@ -57,6 +58,10 @@ public interface SmartClassWebService {
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @GET("/tests/unsigned")
     Call<ArrayList<TestDto>> getUnsignedTests(@Header("Authorization") String token);
+
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    @POST("/tests/{id}/sign")
+    Call<Void> sign(@Header("Authorization") String token, @Path("id") Integer idTest);
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @GET("/events")

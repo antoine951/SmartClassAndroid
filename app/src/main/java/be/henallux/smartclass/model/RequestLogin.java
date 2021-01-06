@@ -1,13 +1,13 @@
 package be.henallux.smartclass.model;
 
-public class requestLogin {
+public class RequestLogin {
 
     private String username;
     private String password;
 
-    public requestLogin() { }
+    public RequestLogin() { }
 
-    public requestLogin(String username, String password) {
+    public RequestLogin(String username, String password) {
         this.username = username;
         this.password = password;
     }

@@ -12,15 +12,19 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 import be.henallux.smartclass.R;
 import be.henallux.smartclass.adapter.UnsignedTestAdapter;
+import be.henallux.smartclass.model.Test;
 
 
 public class TestFragment extends Fragment implements UnsignedTestAdapter.OnTestListener {
-
+    private ArrayList<Test> testsWithButton;
+    private TestViewModel testViewModel;
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        TestViewModel testViewModel = ViewModelProviders.of(this).get(TestViewModel.class);
+        testViewModel = ViewModelProviders.of(this).get(TestViewModel.class);
         View root = inflater.inflate(R.layout.fragment_test, container, false);
 
         final RecyclerView recyclerViewTest = root.findViewById(R.id.unsigned_test_list);
@@ -32,7 +36,10 @@ public class TestFragment extends Fragment implements UnsignedTestAdapter.OnTest
         });
 
         UnsignedTestAdapter unsignedTestAdapter = new UnsignedTestAdapter(this);
-        testViewModel.getUnsignedTestList().observe(getViewLifecycleOwner(), unsignedTestAdapter::setTests);
+        testViewModel.getUnsignedTestList().observe(getViewLifecycleOwner(), tests->{
+            unsignedTestAdapter.setTests(tests);
+            testsWithButton=tests;
+        });
         recyclerViewTest.setAdapter(unsignedTestAdapter);
         recyclerViewTest.setLayoutManager(new LinearLayoutManager(getContext()));
         return root;
@@ -40,7 +47,7 @@ public class TestFragment extends Fragment implements UnsignedTestAdapter.OnTest
 
     @Override
     public void onTestClick(int position) {
-        Toast.makeText(getContext(),"Vous avez cliqué  sur le "+position, Toast.LENGTH_LONG).show();
+        testViewModel.sign(testsWithButton.get(position).getIdTest());
     }
 
 }

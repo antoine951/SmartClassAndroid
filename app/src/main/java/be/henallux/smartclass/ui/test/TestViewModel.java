@@ -31,11 +31,12 @@ public class TestViewModel extends AndroidViewModel {
     private MutableLiveData<String> _message = new MutableLiveData<>();
     private LiveData<String> message = _message;
 
+    private SmartClassWebService smartClassWebService;
     private TestMapper testMapper;
 
     public TestViewModel(@NonNull Application application) {
         super(application);
-        SmartClassWebService smartClassWebService = RetrofitConfigurationService.getInstance(application).smartClassService();
+        smartClassWebService = RetrofitConfigurationService.getInstance(application).smartClassService();
         this.testMapper = TestMapper.getInstance();
 
         smartClassWebService.getUnsignedTests(("Bearer " + SaveSharedPreference.getCurrentChild(getApplication())).replace("\"", "")).enqueue(new Callback<ArrayList<TestDto>>() {
@@ -67,6 +68,27 @@ public class TestViewModel extends AndroidViewModel {
         });
     }
 
+    public void sign(Integer idTest){
+        smartClassWebService.sign(("Bearer " + SaveSharedPreference.getLoggedInUser(getApplication())).replace("\"", ""),idTest).enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(@NotNull Call<Void> call, @NotNull Response<Void> response) {
+                if (response.isSuccessful()) {
+                    _message.setValue(getApplication().getString(R.string.signTest));
+                } else {
+                    _message.setValue(getApplication().getString(R.string.queryError));
+                }
+            }
+
+            @Override
+            public void onFailure(@NotNull Call<Void> call, @NotNull Throwable t) {
+                if (t instanceof NoConnectivityException) {
+                    _message.setValue(getApplication().getString(R.string.internetError));
+                } else {
+                    _message.setValue(getApplication().getString(R.string.generalError));
+                }
+            }
+        });
+    }
     public LiveData<ArrayList<Test>> getUnsignedTestList() {
         return tests;
     }

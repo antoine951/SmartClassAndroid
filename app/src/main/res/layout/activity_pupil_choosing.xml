@@ -9,7 +9,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
         android:layout_marginEnd="20dp"
         android:gravity="center_horizontal"
         android:orientation="vertical"
@@ -29,7 +28,7 @@
             android:textSize="40sp"
             android:textStyle="bold" />
 
-        <fragment
+        <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragment"
             android:name="be.henallux.smartclass.ui.pupilChoosing.ChildFragment"
             android:layout_width="match_parent"

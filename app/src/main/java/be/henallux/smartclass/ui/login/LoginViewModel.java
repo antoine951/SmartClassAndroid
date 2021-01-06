@@ -11,7 +11,7 @@ import androidx.lifecycle.MutableLiveData;
 import org.jetbrains.annotations.NotNull;
 
 import be.henallux.smartclass.R;
-import be.henallux.smartclass.model.requestLogin;
+import be.henallux.smartclass.model.RequestLogin;
 import be.henallux.smartclass.repositories.RetrofitConfigurationService;
 import be.henallux.smartclass.repositories.SmartClassWebService;
 import be.henallux.smartclass.utils.errors.NoConnectivityException;
@@ -46,7 +46,7 @@ public class LoginViewModel extends AndroidViewModel {
 
     public void login(String username, String password){
         _message.setValue(null);
-        smartClassWebService.login(new requestLogin(username,password)).enqueue(new Callback<String>() {
+        smartClassWebService.login(new RequestLogin(username,password)).enqueue(new Callback<String>() {
             @Override
             public void onResponse(@NotNull Call<String> call, @NotNull Response<String> response) {
                 if (response.isSuccessful()) {

@@ -18,6 +18,6 @@ public class TestMapper {
             return null;
         }
 
-        return new Test(dto.getTitle(), dto.getResult(), dto.getNote(), dto.getMaxvalue(), dto.getCategory(), dto.getSchoolsubject());
+        return new Test(dto.getIdtest(), dto.getTitle(), dto.getResult(), dto.getNote(), dto.getMaxvalue(), dto.getCategory(), dto.getSchoolsubject());
     }
 }

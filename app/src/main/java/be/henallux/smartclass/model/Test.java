@@ -3,6 +3,7 @@ package be.henallux.smartclass.model;
 
 public class Test {
 
+    private Integer idTest;
     private String title;
     private Double result;
     private String note;
@@ -12,13 +13,22 @@ public class Test {
 
     public Test() { }
 
-    public Test(String title, Double result, String note, Double maxValue, String category, String schoolSubject) {
+    public Test(Integer idTest, String title, Double result, String note, Double maxValue, String category, String schoolSubject) {
+        this.idTest = idTest;
         this.title = title;
         this.result = result;
         this.note = note;
         this.maxValue = maxValue;
         this.category = category;
         this.schoolSubject = schoolSubject;
+    }
+
+    public Integer getIdTest() {
+        return idTest;
+    }
+
+    public void setIdTest(Integer idTest) {
+        this.idTest = idTest;
     }
 
     public String getTitle() {
