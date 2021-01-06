@@ -21,10 +21,15 @@ public class TestFragment extends Fragment implements UnsignedTestAdapter.OnTest
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         TestViewModel testViewModel = ViewModelProviders.of(this).get(TestViewModel.class);
-
         View root = inflater.inflate(R.layout.fragment_test, container, false);
 
         final RecyclerView recyclerViewTest = root.findViewById(R.id.unsigned_test_list);
+
+        testViewModel.getMessage().observe(getViewLifecycleOwner(), message->{
+            if(message!=null){
+                Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         UnsignedTestAdapter unsignedTestAdapter = new UnsignedTestAdapter(this);
         testViewModel.getUnsignedTestList().observe(getViewLifecycleOwner(), unsignedTestAdapter::setTests);

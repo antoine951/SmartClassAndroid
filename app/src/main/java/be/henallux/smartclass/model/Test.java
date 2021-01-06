@@ -4,19 +4,21 @@ package be.henallux.smartclass.model;
 public class Test {
 
     private String title;
-    private String subjectName;
-    private String category;
-    private Double maxValue;
-    private Double value;
+    private Double result;
     private String note;
+    private Double maxValue;
+    private String category;
+    private String schoolSubject;
 
-    public Test(String title, String subjectName, String category, Double maxValue, Double value, String note) {
-        setTitle(title);
-        setSubjectName(subjectName);
-        setCategory(category);
-        setMaxValue(maxValue);
-        setValue(value);
-        setNote(note);
+    public Test() { }
+
+    public Test(String title, Double result, String note, Double maxValue, String category, String schoolSubject) {
+        this.title = title;
+        this.result = result;
+        this.note = note;
+        this.maxValue = maxValue;
+        this.category = category;
+        this.schoolSubject = schoolSubject;
     }
 
     public String getTitle() {
@@ -27,36 +29,12 @@ public class Test {
         this.title = title;
     }
 
-    public String getSubjectName() {
-        return subjectName;
+    public Double getResult() {
+        return result;
     }
 
-    public void setSubjectName(String subjectName) {
-        this.subjectName = subjectName;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public Double getMaxValue() {
-        return maxValue;
-    }
-
-    public void setMaxValue(Double maxValue) {
-        this.maxValue = maxValue;
-    }
-
-    public Double getValue() {
-        return value;
-    }
-
-    public void setValue(Double value) {
-        this.value = value;
+    public void setResult(Double result) {
+        this.result = result;
     }
 
     public String getNote() {
@@ -67,6 +45,29 @@ public class Test {
         this.note = note;
     }
 
+    public Double getMaxValue() {
+        return maxValue;
+    }
+
+    public void setMaxValue(Double maxValue) {
+        this.maxValue = maxValue;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getSchoolSubject() {
+        return schoolSubject;
+    }
+
+    public void setSchoolSubject(String schoolSubject) {
+        this.schoolSubject = schoolSubject;
+    }
 }
 
 

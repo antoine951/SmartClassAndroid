@@ -44,7 +44,7 @@ public interface SmartClassWebService {
 
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @POST("/tutor/add/pupil")
-    Call<Void> addchild(@Header("Authorization") String token, @Body requestLogin requestLogin);
+    Call<Void> addChild(@Header("Authorization") String token, @Body requestLogin requestLogin);
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @GET("/tutor/pupils")
@@ -55,7 +55,7 @@ public interface SmartClassWebService {
     Call<ArrayList<TaskDto>> getTasks(@Header("Authorization") String token);
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
-    @GET("/test")
+    @GET("/tests/unsigned")
     Call<ArrayList<TestDto>> getUnsignedTests(@Header("Authorization") String token);
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})

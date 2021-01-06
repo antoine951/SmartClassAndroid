@@ -3,11 +3,20 @@ package be.henallux.smartclass.repositories.dto;
 public class TestDto {
 
     private String title;
-    private String subjectName;
-    private String category;
-    private Double maxValue;
-    private Double value;
+    private Double result;
     private String note;
+    private Double maxvalue;
+    private String category;
+    private String schoolsubject;
+
+    public TestDto(String title, Double result, String note, Double maxvalue, String category, String schoolsubject) {
+        this.title = title;
+        this.result = result;
+        this.note = note;
+        this.maxvalue = maxvalue;
+        this.category = category;
+        this.schoolsubject = schoolsubject;
+    }
 
     public String getTitle() {
         return title;
@@ -17,12 +26,28 @@ public class TestDto {
         this.title = title;
     }
 
-    public String getSubjectName() {
-        return subjectName;
+    public Double getResult() {
+        return result;
     }
 
-    public void setSubjectName(String subjectName) {
-        this.subjectName = subjectName;
+    public void setResult(Double result) {
+        this.result = result;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    public Double getMaxvalue() {
+        return maxvalue;
+    }
+
+    public void setMaxvalue(Double maxvalue) {
+        this.maxvalue = maxvalue;
     }
 
     public String getCategory() {
@@ -33,27 +58,11 @@ public class TestDto {
         this.category = category;
     }
 
-    public Double getMaxValue() {
-        return maxValue;
+    public String getSchoolsubject() {
+        return schoolsubject;
     }
 
-    public void setMaxValue(Double maxValue) {
-        this.maxValue = maxValue;
-    }
-
-    public Double getValue() {
-        return value;
-    }
-
-    public void setValue(Double value) {
-        this.value = value;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
+    public void setSchoolsubject(String schoolsubject) {
+        this.schoolsubject = schoolsubject;
     }
 }

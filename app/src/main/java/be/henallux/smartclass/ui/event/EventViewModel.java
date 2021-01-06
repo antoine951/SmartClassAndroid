@@ -6,21 +6,17 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
-import be.henallux.smartclass.model.Pupil;
+import be.henallux.smartclass.model.Event;
 import be.henallux.smartclass.repositories.RetrofitConfigurationService;
 import be.henallux.smartclass.repositories.SmartClassWebService;
 import be.henallux.smartclass.repositories.dto.EventDto;
-import be.henallux.smartclass.repositories.dto.PupilDto;
 import be.henallux.smartclass.services.EventBusiness;
-import be.henallux.smartclass.model.Event;
 import be.henallux.smartclass.services.mappers.EventMapper;
-import be.henallux.smartclass.services.mappers.PupilMapper;
 import be.henallux.smartclass.utils.errors.NoConnectivityException;
 import be.henallux.smartclass.utils.sharedPreferences.SaveSharedPreference;
 import retrofit2.Call;

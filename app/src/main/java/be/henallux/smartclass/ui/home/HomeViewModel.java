@@ -5,17 +5,13 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 
-
+import be.henallux.smartclass.formater.Utils;
 import be.henallux.smartclass.model.Event;
 import be.henallux.smartclass.model.Task;
 import be.henallux.smartclass.services.EventBusiness;
 import be.henallux.smartclass.services.ReportCardBusiness;
 import be.henallux.smartclass.services.TaskBusiness;
-import be.henallux.smartclass.services.TestBusiness;
-import be.henallux.smartclass.formater.Utils;
 
 public class HomeViewModel extends ViewModel {
 
@@ -27,13 +23,11 @@ public class HomeViewModel extends ViewModel {
     private MutableLiveData<String> mMathMean;
     private MutableLiveData<String> mSciencesMean;
     private MutableLiveData<String> mOtherMean;
-    private MutableLiveData<String> mGeneralMean;
 
     public HomeViewModel() {
         ArrayList<Task> tasks = new ArrayList<>();
         TaskBusiness taskBusiness = new TaskBusiness(tasks);
 
-        TestBusiness testBusiness = new TestBusiness();
         ReportCardBusiness reportCardBusiness = new ReportCardBusiness();
 
         ArrayList<Event> events = new ArrayList<>();
@@ -43,7 +37,7 @@ public class HomeViewModel extends ViewModel {
         mTextTask.setValue(Integer.toString(taskBusiness.getTasks().get(1).size()));
 
         mTextTest= new MutableLiveData<>();
-        mTextTest.setValue(Integer.toString(testBusiness.getUnsignedTest().size()));
+        mTextTest.setValue("0");
 
         mTextEvent= new MutableLiveData<>();
         mTextEvent.setValue(Integer.toString(eventBusiness.getEventThisWeek().size()+ eventBusiness.getEventThisMonth().size()));

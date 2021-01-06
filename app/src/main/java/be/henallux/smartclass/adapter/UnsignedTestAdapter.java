@@ -34,9 +34,9 @@ public class UnsignedTestAdapter extends RecyclerView.Adapter<UnsignedTestAdapte
     @Override
     public void onBindViewHolder(@NonNull UnsignedTestAdapter.ViewHolderTest holder, int position) {
         Test test = tests.get(position);
-        holder.textViewSubject.setText(test.getSubjectName());
+        holder.textViewSubject.setText(test.getSchoolSubject());
         holder.textViewTitle.setText(test.getTitle());
-        String result = Utils.formattedOneDecimalWithoutZero(test.getValue()) + "/" + Utils.formattedOneDecimalWithoutZero(test.getMaxValue());
+        String result = Utils.formattedOneDecimalWithoutZero(test.getResult()) + "/" + Utils.formattedOneDecimalWithoutZero(test.getMaxValue());
         holder.textViewResult.setText(result);
         holder.textViewNote.setText(test.getNote());
     }
@@ -69,14 +69,11 @@ public class UnsignedTestAdapter extends RecyclerView.Adapter<UnsignedTestAdapte
             textViewNote = itemView.findViewById(R.id.note);
             signedButton = itemView.findViewById(R.id.check);
 
-            signedButton.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View view) {
-                    if(onTestListener != null){
-                        int position = getAdapterPosition();
-                        if(position != RecyclerView.NO_POSITION){
-                            onTestListener.onTestClick(position);
-                        }
+            signedButton.setOnClickListener(view -> {
+                if(onTestListener != null){
+                    int position = getAdapterPosition();
+                    if(position != RecyclerView.NO_POSITION){
+                        onTestListener.onTestClick(position);
                     }
                 }
             });

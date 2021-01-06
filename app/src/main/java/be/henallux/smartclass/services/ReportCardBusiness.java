@@ -58,7 +58,7 @@ public class ReportCardBusiness {
     //restriction taille categories
     private ArrayList<Test> getTests(String category, int count) {
         ArrayList<Test> tests = new ArrayList<>();
-        if (count == 1) {
+        /*if (count == 1) {
             tests.add(new Test("Les verbes en -ER", "Conjugaison", "Francçais", 20.0, 18.0, "Très bon travail"));
             tests.add(new Test("Les verbes en -ER", "Grammaire", "Francçais", 20.0, 16.5, "Très bon travail"));
             tests.add(new Test("Les verbes en -ER", "Orthographe", "Francçais", 20.0, 18.5, "Très bon travail"));
@@ -75,12 +75,12 @@ public class ReportCardBusiness {
             tests.add(new Test("Bilan Moyen-âge", "Histoire", "Eveil", 40.0, 21.0, "Matière à revoir"));
         } else {
             tests.add(new Test("gym", "Gym", null, 10.0, 9.0, null));
-        }
+        }*/
         return tests;
     }
 
     private double makeReportCard(ArrayList<Test> tests, ArrayList<SubjectScore> category) {
-        double cumulCategory = 0;
+        /*double cumulCategory = 0;
         double cumulMaxVal = 0;
         double cumulValue = 0;
         String previous = tests.get(0).getSubjectName();
@@ -99,7 +99,8 @@ public class ReportCardBusiness {
         }
         cumulCategory += (cumulValue / cumulMaxVal) * 100;
         category.add(new SubjectScore(previous, (cumulValue / cumulMaxVal) * 100));
-        return cumulCategory / (double) category.size();
+        return cumulCategory / (double) category.size();*/
+        return 0;
     }
 
 

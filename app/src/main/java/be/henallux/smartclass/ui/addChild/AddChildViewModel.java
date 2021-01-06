@@ -32,7 +32,7 @@ public class AddChildViewModel extends AndroidViewModel {
 
     public void addChild(String username, String password){
         _message.setValue(null);
-        smartClassWebService.addchild(("Bearer " + SaveSharedPreference.getLoggedInUser(getApplication())).replace("\"", ""),new requestLogin(username,password)).enqueue(new Callback<Void>() {
+        smartClassWebService.addChild(("Bearer " + SaveSharedPreference.getLoggedInUser(getApplication())).replace("\"", ""),new requestLogin(username,password)).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(@NotNull Call<Void> call, @NotNull Response<Void> response) {
                 if (response.isSuccessful()) {

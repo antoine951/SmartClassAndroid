@@ -1,10 +1,6 @@
 package be.henallux.smartclass.services;
 
-import java.util.ArrayList;
-
-import be.henallux.smartclass.model.Test;
-
-public class TestBusiness {
+/*public class TestBusiness {
 
     public ArrayList<Test> getUnsignedTest() {
         ArrayList<Test> tests = new ArrayList<>();
@@ -15,4 +11,4 @@ public class TestBusiness {
         tests.add(new Test("Les partages inégaux", "Problème", null, 20.0, 14.0, "Continue sur ta lançée"));
         return tests;
     }
-}
+}*/
