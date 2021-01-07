@@ -13,12 +13,6 @@ public class SaveSharedPreference {
         return PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    /*public static void setLoggedIn(Context context, boolean loggedIn) {
-        SharedPreferences.Editor editor = getPreferences(context).edit();
-        editor.putBoolean("logged_in_status", loggedIn);
-        editor.apply();
-    }*/
-
     public static void setLoggedInUser(Context context, String token) {
         SharedPreferences.Editor editor = getPreferences(context).edit();
         Gson gson = new Gson();

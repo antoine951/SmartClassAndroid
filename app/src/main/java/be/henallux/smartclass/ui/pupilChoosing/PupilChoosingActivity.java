@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import be.henallux.smartclass.R;
 import be.henallux.smartclass.ui.addChild.AddChildActivity;
-import be.henallux.smartclass.utils.sharedPreferences.SaveSharedPreference;
 
 public class PupilChoosingActivity extends AppCompatActivity {
 
@@ -32,7 +31,6 @@ public class PupilChoosingActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        //SaveSharedPreference.setLoggedIn(getApplication(),false);
         finish();
     }
 
