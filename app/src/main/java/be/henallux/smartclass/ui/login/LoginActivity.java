@@ -38,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel.getIsLog().observe(this, isLog -> {
             if (isLog) {
                 loadingProgressBar.setVisibility(View.GONE);
+                loginButton.setEnabled(true);
+                signUpButton.setEnabled(true);
                 Intent intent = new Intent(getApplicationContext(), PupilChoosingActivity.class);
                 startActivity(intent);
             }
@@ -47,7 +49,6 @@ public class LoginActivity extends AppCompatActivity {
             if (message != null) {
                 loadingProgressBar.setVisibility(View.GONE);
                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
-
             }
         });
 
@@ -93,6 +94,8 @@ public class LoginActivity extends AppCompatActivity {
 
         signUpButton.setOnClickListener(this::navigateToSignUp);
         loginButton.setOnClickListener(v -> {
+            loginButton.setEnabled(false);
+            signUpButton.setEnabled(false);
             loadingProgressBar.setVisibility(View.VISIBLE);
             loginViewModel.login(usernameEditText.getText().toString(), passwordEditText.getText().toString());
         });
