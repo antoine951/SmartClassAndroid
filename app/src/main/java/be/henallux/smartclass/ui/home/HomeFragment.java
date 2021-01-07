@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import be.henallux.smartclass.R;
-import be.henallux.smartclass.model.Test;
 import be.henallux.smartclass.ui.event.EventViewModel;
 import be.henallux.smartclass.ui.reportCard.ReportCardViewModel;
 import be.henallux.smartclass.ui.task.TaskViewModel;
