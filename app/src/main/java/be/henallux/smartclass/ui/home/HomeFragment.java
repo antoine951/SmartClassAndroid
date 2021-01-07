@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders;
 import be.henallux.smartclass.R;
 import be.henallux.smartclass.model.Test;
 import be.henallux.smartclass.ui.event.EventViewModel;
+import be.henallux.smartclass.ui.reportCard.ReportCardViewModel;
 import be.henallux.smartclass.ui.task.TaskViewModel;
 import be.henallux.smartclass.ui.test.TestViewModel;
 
@@ -22,10 +23,10 @@ public class HomeFragment extends Fragment {
     @SuppressLint("SetTextI18n")
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
         TaskViewModel taskViewModel = ViewModelProviders.of(this).get(TaskViewModel.class);
         TestViewModel testViewModel = ViewModelProviders.of(this).get(TestViewModel.class);
         EventViewModel eventViewModel = ViewModelProviders.of(this).get(EventViewModel.class);
+        ReportCardViewModel reportCardViewModel = ViewModelProviders.of(this).get(ReportCardViewModel.class);
 
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
@@ -43,10 +44,10 @@ public class HomeFragment extends Fragment {
         eventViewModel.getEventListWeek().observe(getViewLifecycleOwner(), events-> numberEvent.setText(Integer.toString(events.size())));
 
 
-        homeViewModel.getFrenchMean().observe(getViewLifecycleOwner(), frenchMean::setText);
-        homeViewModel.getMathMean().observe(getViewLifecycleOwner(), mathMean::setText);
-        homeViewModel.getSciencesMean().observe(getViewLifecycleOwner(), sciencesMean::setText);
-        homeViewModel.getOtherMean().observe(getViewLifecycleOwner(), otherMean::setText);
+        reportCardViewModel.getFrenchMean().observe(getViewLifecycleOwner(), frenchMean::setText);
+        reportCardViewModel.getMathMean().observe(getViewLifecycleOwner(), mathMean::setText);
+        reportCardViewModel.getSciencesMean().observe(getViewLifecycleOwner(), sciencesMean::setText);
+        reportCardViewModel.getOtherMean().observe(getViewLifecycleOwner(), otherMean::setText);
 
         return root;
     }

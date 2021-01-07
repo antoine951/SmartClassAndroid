@@ -12,12 +12,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import be.henallux.smartclass.R;
-import be.henallux.smartclass.formater.Utils;
-import be.henallux.smartclass.model.SubjectScore;
+import be.henallux.smartclass.model.Result;
 
 public class ReportCardAdapter extends RecyclerView.Adapter<ReportCardAdapter.ViewHolderReportCard> {
 
-    private ArrayList<SubjectScore> subjectScores;
+    private ArrayList<Result> Results;
 
     @NonNull
     @Override
@@ -29,18 +28,18 @@ public class ReportCardAdapter extends RecyclerView.Adapter<ReportCardAdapter.Vi
     @SuppressLint({"UseCompatLoadingForDrawables", "SetTextI18n"})
     @Override
     public void onBindViewHolder(@NonNull ReportCardAdapter.ViewHolderReportCard holder, int position) {
-        SubjectScore subjectScore = subjectScores.get(position);
-        holder.textViewSubject.setText(subjectScore.getSubject());
-        holder.textViewScore.setText(Utils.formattedPercent(subjectScore.getResult()));
+        Result Result = Results.get(position);
+        holder.textViewSubject.setText(Result.getCategory());
+        holder.textViewScore.setText(Result.getAverage());
     }
 
     @Override
     public int getItemCount() {
-        return (subjectScores == null) ? 0 : subjectScores.size();
+        return (Results == null) ? 0 : Results.size();
     }
 
-    public void setSubjectScores(ArrayList<SubjectScore> subjectScores) {
-        this.subjectScores = subjectScores;
+    public void setSubjectScores(ArrayList<Result> Results) {
+        this.Results = Results;
         notifyDataSetChanged();
     }
 

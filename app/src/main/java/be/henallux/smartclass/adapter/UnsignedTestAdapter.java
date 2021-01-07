@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 import be.henallux.smartclass.R;
-import be.henallux.smartclass.formater.Utils;
+import be.henallux.smartclass.services.Utils;
 import be.henallux.smartclass.model.Test;
 
 public class UnsignedTestAdapter extends RecyclerView.Adapter<UnsignedTestAdapter.ViewHolderTest> {

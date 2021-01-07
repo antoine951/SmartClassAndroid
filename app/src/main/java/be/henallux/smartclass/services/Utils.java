@@ -1,4 +1,4 @@
-package be.henallux.smartclass.formater;
+package be.henallux.smartclass.services;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -7,11 +7,6 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Utils {
-
-    public static String formattedPercent(double percent) {
-        NumberFormat formatter = new DecimalFormat("#.0");
-        return formatter.format(percent)+"%";
-    }
 
     public static String formattedOneDecimalWithoutZero(double percent) {
         NumberFormat formatter = new DecimalFormat("#.#");

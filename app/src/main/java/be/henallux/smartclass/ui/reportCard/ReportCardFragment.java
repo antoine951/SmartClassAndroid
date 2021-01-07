@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import be.henallux.smartclass.R;
 import be.henallux.smartclass.adapter.ReportCardAdapter;
@@ -34,6 +35,12 @@ public class ReportCardFragment extends Fragment {
         final RecyclerView recyclerViewMathSubject = root.findViewById(R.id.mathSubject);
         final RecyclerView recyclerViewSciencesSubject = root.findViewById(R.id.sciencesSubject);
         final RecyclerView recyclerViewOtherSubject = root.findViewById(R.id.otherSubject);
+
+        reportCardViewModel.getMessage().observe(getViewLifecycleOwner(), message->{
+            if(message!=null){
+                Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         ReportCardAdapter adapterFrench = new ReportCardAdapter();
         reportCardViewModel.getFrench().observe(getViewLifecycleOwner(), adapterFrench::setSubjectScores);

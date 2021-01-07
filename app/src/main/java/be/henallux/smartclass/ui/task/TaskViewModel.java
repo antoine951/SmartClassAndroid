@@ -12,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
 import be.henallux.smartclass.R;
-import be.henallux.smartclass.formater.Utils;
+import be.henallux.smartclass.services.Utils;
 import be.henallux.smartclass.model.Task;
 import be.henallux.smartclass.repositories.RetrofitConfigurationService;
 import be.henallux.smartclass.repositories.SmartClassWebService;

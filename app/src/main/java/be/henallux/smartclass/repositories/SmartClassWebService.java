@@ -3,10 +3,11 @@ package be.henallux.smartclass.repositories;
 
 import java.util.ArrayList;
 
-import be.henallux.smartclass.model.Tutor;
 import be.henallux.smartclass.model.RequestLogin;
+import be.henallux.smartclass.model.Tutor;
 import be.henallux.smartclass.repositories.dto.EventDto;
 import be.henallux.smartclass.repositories.dto.PupilDto;
+import be.henallux.smartclass.repositories.dto.ResultDto;
 import be.henallux.smartclass.repositories.dto.TaskDto;
 import be.henallux.smartclass.repositories.dto.TestDto;
 import retrofit2.Call;
@@ -54,6 +55,14 @@ public interface SmartClassWebService {
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @GET("/tasks/week")
     Call<ArrayList<TaskDto>> getTasks(@Header("Authorization") String token);
+
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @GET("/results")
+    Call<ArrayList<ResultDto>> getGlobalResult(@Header("Authorization") String token);
+
+    @Headers({"Content-Type: application/json;charset=UTF-8"})
+    @GET("/results/average")
+    Call<ArrayList<ResultDto>> getDetailResult(@Header("Authorization") String token);
 
     @Headers({"Content-Type: application/json;charset=UTF-8"})
     @GET("/tests/unsigned")

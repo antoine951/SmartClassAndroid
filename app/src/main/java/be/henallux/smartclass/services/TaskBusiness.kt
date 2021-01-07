@@ -20,7 +20,6 @@ class TaskBusiness (tasksInput: ArrayList<Task>){
     }
 
     private fun sortDate(tasksInput: ArrayList<Task>) {
-        //val tasksInput = taskFromDataAccess
         for (task in tasksInput) {
             when (task.date) {
                 dates[0] -> tasks[0].add(task)
@@ -43,22 +42,5 @@ class TaskBusiness (tasksInput: ArrayList<Task>){
         calendar.add(Calendar.DATE, n)
         return calendar.time
     }
-
-    /*private val taskFromDataAccess: ArrayList<Task>
-        get() {
-            val tasks = ArrayList<Task>()
-            tasks.add(Task("Interrogation tables de 3", "interrogation", GregorianCalendar(2020, Calendar.DECEMBER, 15).time))
-            tasks.add(Task("Apporter argent repas", "annonce", GregorianCalendar(2020, Calendar.DECEMBER, 15).time))
-            tasks.add(Task("Lire le chapitre 2 du livre", "devoir", GregorianCalendar(2020, Calendar.DECEMBER, 16).time))
-            tasks.add(Task("Interrogation tables de 4", "interrogation", GregorianCalendar(2020, Calendar.DECEMBER, 17).time))
-            tasks.add(Task("Interrogation tables de 5", "interrogation", GregorianCalendar(2020, Calendar.DECEMBER, 17).time))
-            tasks.add(Task("Terminer les exercices sur les fractions", "devoir", GregorianCalendar(2020, Calendar.DECEMBER, 17).time))
-            tasks.add(Task("Interrogation tables de 6", "interrogation", GregorianCalendar(2020, Calendar.DECEMBER, 18).time))
-            tasks.add(Task("Interrogation tables de 7", "interrogation", GregorianCalendar(2020, Calendar.DECEMBER, 18).time))
-            tasks.add(Task("Interrogation tables de 8", "interrogation", GregorianCalendar(2020, Calendar.DECEMBER, 21).time))
-            tasks.add(Task("Interrogation tables de 9", "interrogation", GregorianCalendar(2020, Calendar.DECEMBER, 21).time))
-            tasks.add(Task("Interrogation tables de 10", "interrogation", GregorianCalendar(2020, Calendar.DECEMBER, 22).time))
-            return tasks
-        }*/
 }
 
