@@ -13,15 +13,11 @@ public class SaveSharedPreference {
         return PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    public static void setLoggedIn(Context context, boolean loggedIn) {
+    /*public static void setLoggedIn(Context context, boolean loggedIn) {
         SharedPreferences.Editor editor = getPreferences(context).edit();
         editor.putBoolean("logged_in_status", loggedIn);
         editor.apply();
-    }
-
-    public static boolean getLoggedStatus(Context context) {
-        return getPreferences(context).getBoolean("logged_in_status",false);
-    }
+    }*/
 
     public static void setLoggedInUser(Context context, String token) {
         SharedPreferences.Editor editor = getPreferences(context).edit();

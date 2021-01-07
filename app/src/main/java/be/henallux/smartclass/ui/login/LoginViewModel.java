@@ -25,7 +25,7 @@ public class LoginViewModel extends AndroidViewModel {
     private MutableLiveData<LoginFormState> loginFormState = new MutableLiveData<>();
 
     private MutableLiveData<String> _message = new MutableLiveData<>();
-    private LiveData<String> error = _message;
+    private LiveData<String> message = _message;
 
     private MutableLiveData<Boolean> _isLog = new MutableLiveData<>();
     private LiveData<Boolean> isLog = _isLog;
@@ -49,11 +49,11 @@ public class LoginViewModel extends AndroidViewModel {
         smartClassWebService.login(new RequestLogin(username,password)).enqueue(new Callback<String>() {
             @Override
             public void onResponse(@NotNull Call<String> call, @NotNull Response<String> response) {
+                _message.setValue(null);
                 if (response.isSuccessful()) {
-                    _message.setValue(null);
+                    _message.setValue(getApplication().getString(R.string.signInOk));
                     _isLog.setValue(true);
                     SaveSharedPreference.setLoggedInUser(app, response.body());
-                    SaveSharedPreference.setLoggedIn(app,true);
                 } else {
                     _isLog.setValue(false);
                     _message.setValue(getApplication().getString(R.string.loginError));
@@ -96,7 +96,7 @@ public class LoginViewModel extends AndroidViewModel {
     }
 
     public LiveData<String> getMessage() {
-        return error;
+        return message;
     }
 
     public LiveData<Boolean> getIsLog() {

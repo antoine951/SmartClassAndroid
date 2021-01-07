@@ -32,7 +32,7 @@ public class PupilChoosingActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed(){
-        SaveSharedPreference.setLoggedIn(getApplication(),false);
+        //SaveSharedPreference.setLoggedIn(getApplication(),false);
         finish();
     }
 
