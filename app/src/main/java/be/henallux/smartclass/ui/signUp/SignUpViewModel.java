@@ -15,6 +15,7 @@ import be.henallux.smartclass.model.Tutor;
 import be.henallux.smartclass.repositories.RetrofitConfigurationService;
 import be.henallux.smartclass.repositories.SmartClassWebService;
 import be.henallux.smartclass.utils.errors.NoConnectivityException;
+import be.henallux.smartclass.utils.sharedPreferences.SaveSharedPreference;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -39,10 +40,19 @@ public class SignUpViewModel extends AndroidViewModel {
         smartClassWebService.signUp(tutor).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(@NotNull Call<Void> call, @NotNull Response<Void> response) {
-                if (response.isSuccessful()) {
-                    _message.setValue(getApplication().getString(R.string.userAdd));
-                } else {
-                    _message.setValue(getApplication().getString(R.string.signUpError));
+
+                switch(response.code()) {
+                    case 200:
+                        _message.setValue(getApplication().getString(R.string.userAdd));
+                        break;
+                    case 401:
+                        _message.setValue(getApplication().getString(R.string.loginError));
+                        break;
+                    case 409:
+                        _message.setValue(getApplication().getString(R.string.signUpError));
+                        break;
+                    default:
+                        _message.setValue(getApplication().getString(R.string.generalError));
                 }
             }
 

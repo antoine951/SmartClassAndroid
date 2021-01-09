@@ -36,10 +36,19 @@ public class AddChildViewModel extends AndroidViewModel {
         smartClassWebService.addChild(("Bearer " + SaveSharedPreference.getLoggedInUser(getApplication())).replace("\"", ""),new RequestLogin(username,password)).enqueue(new Callback<Void>() {
             @Override
             public void onResponse(@NotNull Call<Void> call, @NotNull Response<Void> response) {
-                if (response.isSuccessful()) {
-                    _message.setValue(getApplication().getString(R.string.childAdd));
-                } else {
-                    _message.setValue(getApplication().getString(R.string.loginError));
+                switch(response.code()){
+                    case 200:
+                        _message.setValue(getApplication().getString(R.string.childAdd));
+                        break;
+                    case 401:
+                        _message.setValue(getApplication().getString(R.string.loginError));
+                        break;
+                    case 404:
+                        _message.setValue(getApplication().getString(R.string.userNotFoundError));
+                        break;
+                    case 409:
+                        _message.setValue(getApplication().getString(R.string.childAlreadyLinkedError));
+                        break;
                 }
             }
 

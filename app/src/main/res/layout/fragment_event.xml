@@ -4,7 +4,7 @@
     android:id="@+id/EventScrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLightBlue"
+    android:background="@drawable/gradient"
     android:hapticFeedbackEnabled="false"
     tools:context=".ui.event.EventFragment">
 
@@ -25,9 +25,9 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:text="@string/event_week"
-            android:textStyle="bold"
-            android:textColor="@color/colorDarkBlue"
-            android:textSize="50sp" />
+            android:textColor="@color/colorWhite"
+            android:textSize="50sp"
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/event_list_week"
@@ -45,9 +45,9 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:text="@string/event_month"
-            android:textStyle="bold"
-            android:textColor="@color/colorDarkBlue"
-            android:textSize="50sp" />
+            android:textColor="@color/colorWhite"
+            android:textSize="50sp"
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/event_list_month"
@@ -66,9 +66,9 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:text="@string/event_coming"
-            android:textStyle="bold"
-            android:textColor="@color/colorDarkBlue"
-            android:textSize="50sp" />
+            android:textColor="@color/colorWhite"
+            android:textSize="50sp"
+            android:textStyle="bold" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/event_list_coming"

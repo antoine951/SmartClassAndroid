@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLightBlue"
+    android:background="@drawable/gradient"
     tools:context=".ui.signUp.SignUpActivity">
 
     <androidx.cardview.widget.CardView
@@ -14,8 +14,9 @@
         android:layout_marginTop="30dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
-        app:cardBackgroundColor="@color/colorWhite"
-        app:cardCornerRadius="20dp">
+        app:cardBackgroundColor="#00000000"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,16 +25,16 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="20dp"
-            android:background="@color/colorWhite"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="#00000000"
                 android:text="@string/welcomeMessage"
-                android:textColor="@color/colorDarkBlue"
-                android:textSize="30sp"
+                android:textColor="@color/colorWhite"
+                android:textSize="45sp"
                 android:textStyle="bold" />
 
             <EditText
@@ -45,8 +46,9 @@
                 android:ems="10"
                 android:hint="@string/prompt_email"
                 android:inputType="textEmailAddress"
-                android:textColor="@color/colorDarkBlue"
-                android:textColorHint="@color/colorDarkBlue"
+                android:backgroundTint="@color/colorWhite"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhiteFaded"
                 android:textSize="20sp" />
 
             <EditText
@@ -58,8 +60,9 @@
                 android:ems="10"
                 android:hint="@string/prompt_password"
                 android:inputType="textPassword"
-                android:textColor="@color/colorDarkBlue"
-                android:textColorHint="@color/colorDarkBlue"
+                android:backgroundTint="@color/colorWhite"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhiteFaded"
                 android:textSize="20sp" />
 
             <EditText
@@ -71,8 +74,9 @@
                 android:ems="10"
                 android:hint="@string/confirmPassword"
                 android:inputType="textPassword"
-                android:textColor="@color/colorDarkBlue"
-                android:textColorHint="@color/colorDarkBlue"
+                android:backgroundTint="@color/colorWhite"
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorWhiteFaded"
                 android:textSize="20sp" />
 
             <EditText
@@ -84,8 +88,6 @@
                 android:ems="10"
                 android:hint="@string/firstname"
                 android:inputType="textPersonName"
-                android:textColor="@color/colorDarkBlue"
-                android:textColorHint="@color/colorDarkBlue"
                 android:textSize="20sp" />
 
             <EditText
@@ -97,8 +99,6 @@
                 android:ems="10"
                 android:hint="@string/lastname"
                 android:inputType="textPersonName"
-                android:textColor="@color/colorDarkBlue"
-                android:textColorHint="@color/colorDarkBlue"
                 android:textSize="20sp" />
 
             <EditText
@@ -110,8 +110,7 @@
                 android:ems="10"
                 android:hint="@string/phoneNumber"
                 android:inputType="phone"
-                android:textColor="@color/colorDarkBlue"
-                android:textColorHint="@color/colorDarkBlue"
+
                 android:textSize="20sp" />
 
             <Button

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#03A9F4"
+    android:background="@android:color/transparent"
+    android:fitsSystemWindows="true"
     tools:context=".ui.home.HomeFragment">
 
     <LinearLayout
@@ -13,13 +14,12 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="40dp"
             android:text="@string/welcome"
-            android:textColor="@color/colorDarkBlue"
+            android:textColor="@color/colorWhite"
             android:textSize="60sp"
             android:textStyle="bold" />
 
@@ -27,9 +27,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="50dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="50dp"
             app:cardBackgroundColor="@color/colorWhite"
             app:cardCornerRadius="20dp">
 
@@ -37,8 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_margin="20dp"
                 android:background="@color/colorWhite"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
@@ -46,8 +45,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -55,7 +53,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="20dp"
-                        android:textColor="@color/colorDarkBlue"
+                        android:textColor="@color/colorPink"
                         android:textSize="25sp" />
 
                     <TextView
@@ -63,13 +61,13 @@
                         android:layout_height="wrap_content"
                         android:text="@string/numberTask"
                         android:textColor="@color/colorDarkBlue"
-                        android:textSize="25sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -77,7 +75,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="20dp"
-                        android:textColor="@color/colorDarkBlue"
+                        android:textColor="@color/colorPink"
                         android:textSize="25sp" />
 
                     <TextView
@@ -85,7 +83,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/numberUnsignedTest"
                         android:textColor="@color/colorDarkBlue"
-                        android:textSize="25sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -99,7 +97,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="20dp"
-                        android:textColor="@color/colorDarkBlue"
+                        android:textColor="@color/colorPink"
                         android:textSize="25sp" />
 
                     <TextView
@@ -107,7 +105,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/event_to_come"
                         android:textColor="@color/colorDarkBlue"
-                        android:textSize="25sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -117,23 +115,23 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="70dp"
             app:cardBackgroundColor="@color/colorWhite"
             app:cardCornerRadius="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
+                android:layout_margin="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:background="@color/colorWhite"
                 android:orientation="vertical">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="20dp"
                     android:text="@string/menu_report_card"
                     android:textColor="@color/colorDarkBlue"
                     android:textSize="30sp"
@@ -158,8 +156,8 @@
                         android:id="@+id/frenchMean"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="112dp"
-                        android:textColor="@color/colorDarkBlue"
+                        android:layout_marginEnd="10dp"
+                        android:textColor="@color/colorLightBlue"
                         android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -184,8 +182,8 @@
                         android:id="@+id/mathMean"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="112dp"
-                        android:textColor="@color/colorDarkBlue"
+                        android:layout_marginEnd="10dp"
+                        android:textColor="@color/colorLightBlue"
                         android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -210,8 +208,8 @@
                         android:id="@+id/sciencesMean"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="112dp"
-                        android:textColor="@color/colorDarkBlue"
+                        android:layout_marginEnd="10dp"
+                        android:textColor="@color/colorLightBlue"
                         android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -236,8 +234,8 @@
                         android:id="@+id/otherMean"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="112dp"
-                        android:textColor="@color/colorDarkBlue"
+                        android:layout_marginEnd="10dp"
+                        android:textColor="@color/colorLightBlue"
                         android:textSize="25sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />

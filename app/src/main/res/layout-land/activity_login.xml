@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLightBlue"
+    android:background="@drawable/gradient"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -15,7 +15,7 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorLightBlue"
+        android:fitsSystemWindows="true"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
@@ -24,13 +24,13 @@
 
         <ImageView
             android:id="@+id/logoLogin"
-            android:layout_width="419dp"
-            android:layout_height="76dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="621dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="16dp"
             android:contentDescription="@string/descriptionLogo"
             android:src="@drawable/logo_smart_class"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,8 +38,10 @@
             android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="#00000000"
             app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:cardPreventCornerOverlap="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/logoLogin">
@@ -61,8 +63,6 @@
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
                     android:selectAllOnFocus="true"
-                    android:textColor="@color/colorDarkBlue"
-                    android:textColorHint="@color/colorDarkBlue"
                     android:textSize="20sp" />
 
                 <EditText
@@ -70,7 +70,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="24dp"
                     android:layout_marginEnd="24dp"
                     android:autofillHints=""
                     android:hint="@string/prompt_password"
@@ -78,17 +78,14 @@
                     android:imeOptions="actionDone"
                     android:inputType="textPassword"
                     android:selectAllOnFocus="true"
-                    android:textColor="@color/colorDarkBlue"
-                    android:textColorHint="@color/colorDarkBlue"
                     android:textSize="20sp" />
             </LinearLayout>
 
             <ProgressBar
                 android:id="@+id/loading"
-                android:layout_width="112dp"
-                android:layout_height="143dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_marginStart="16dp"
                 android:visibility="gone" />
 
         </androidx.cardview.widget.CardView>
@@ -98,23 +95,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="16dp"
             android:enabled="false"
             android:text="@string/action_sign_in_short"
             android:textSize="25sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
         <Button
             android:id="@+id/signUp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="54dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
             android:text="@string/signup"
-            android:textSize="25sp"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

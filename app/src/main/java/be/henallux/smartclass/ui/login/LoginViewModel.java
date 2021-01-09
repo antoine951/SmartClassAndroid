@@ -50,13 +50,23 @@ public class LoginViewModel extends AndroidViewModel {
             @Override
             public void onResponse(@NotNull Call<String> call, @NotNull Response<String> response) {
                 _message.setValue(null);
-                if (response.isSuccessful()) {
-                    _message.setValue(getApplication().getString(R.string.signInOk));
-                    _isLog.setValue(true);
-                    SaveSharedPreference.setLoggedInUser(app, response.body());
-                } else {
-                    _isLog.setValue(false);
-                    _message.setValue(getApplication().getString(R.string.loginError));
+                switch(response.code()) {
+                    case 200:
+                        _message.setValue(getApplication().getString(R.string.signInOk));
+                        _isLog.setValue(true);
+                        SaveSharedPreference.setLoggedInUser(app, response.body());
+                        break;
+                    case 401:
+                        _isLog.setValue(false);
+                        _message.setValue(getApplication().getString(R.string.loginError));
+                        break;
+                    case 404:
+                        _isLog.setValue(false);
+                        _message.setValue(getApplication().getString(R.string.userNotFoundError));
+                        break;
+                    default:
+                        _isLog.setValue(false);
+                        _message.setValue(getApplication().getString(R.string.generalError));
                 }
             }
 

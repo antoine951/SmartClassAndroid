@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_weight=".5"
-    android:background="@color/colorLightBlue"
+    android:background="@drawable/gradient"
     tools:context=".ui.reportCard.ReportCardFragment">
 
     <!--<androidx.cardview.widget.CardView
@@ -21,7 +21,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorLightBlue"
+        android:background="#00000000"
         android:orientation="vertical">
 
         <LinearLayout
@@ -42,6 +42,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="20dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -108,16 +109,14 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
+                android:layout_margin="20dp"
                 android:layout_weight="1"
                 app:cardCornerRadius="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="20dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -200,6 +199,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="20dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -273,6 +273,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="20dp"
                     android:orientation="vertical">
 
                     <TextView

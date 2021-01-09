@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLightBlue"
+    android:background="@drawable/gradient"
     tools:context=".ui.reportCard.ReportCardFragment">
 
     <androidx.cardview.widget.CardView
@@ -20,6 +20,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="20dp"
             android:background="@color/colorWhite"
             android:orientation="vertical">
 
@@ -28,10 +29,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="50dp"
-                android:layout_marginRight="50dp"
                 android:text="@string/french"
                 android:textColor="@color/colorDarkBlue"
                 android:textSize="30sp"
@@ -42,17 +41,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp" />
+                android:layout_marginEnd="20dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
@@ -71,7 +66,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
                     android:textColor="@color/colorPink"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -84,10 +78,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="50dp"
-                android:layout_marginRight="50dp"
                 android:text="@string/math"
                 android:textColor="@color/colorDarkBlue"
                 android:textSize="30sp"
@@ -98,17 +90,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp" />
+                android:layout_marginEnd="20dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
@@ -127,7 +115,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
                     android:textColor="@color/colorPink"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -140,10 +127,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="50dp"
-                android:layout_marginRight="50dp"
                 android:text="@string/science"
                 android:textColor="@color/colorDarkBlue"
                 android:textSize="30sp"
@@ -154,17 +139,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp" />
+                android:layout_marginEnd="20dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
@@ -183,7 +164,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
                     android:textColor="@color/colorPink"
                     android:textSize="20sp"
                     android:textStyle="bold"
@@ -196,10 +176,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="50dp"
-                android:layout_marginRight="50dp"
                 android:text="@string/other"
                 android:textColor="@color/colorDarkBlue"
                 android:textSize="30sp"
@@ -210,17 +188,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp" />
+                android:layout_marginEnd="20dp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
@@ -239,7 +213,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
                     android:textColor="@color/colorPink"
                     android:textSize="20sp"
                     android:textStyle="bold"
